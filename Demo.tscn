@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8g766i615uel"]
+[gd_scene load_steps=13 format=3 uid="uid://vs8utfog5n0b"]
 
 [ext_resource type="Script" path="res://Demo.gd" id="1_c2b6g"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="1_rurpj"]
 [ext_resource type="Script" path="res://Objects/Grabbable.gd" id="2_fhm0t"]
+[ext_resource type="PackedScene" uid="uid://ky2704eu3e34" path="res://Construction/GrabbableWall.tscn" id="4_rdokm"]
+[ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="5_vv5r1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fcfpm"]
 
@@ -14,6 +16,14 @@ size = Vector2(408, 20)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ndywe"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u3p7y"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1i43v"]
+scenes/1/scene = ExtResource("4_rdokm")
+scenes/2/scene = ExtResource("5_vv5r1")
+
+[sub_resource type="TileSet" id="TileSet_pdlt5"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_1i43v")
 
 [node name="Demo" type="Node2D"]
 script = ExtResource("1_c2b6g")
@@ -115,3 +125,9 @@ offset_top = 645.0
 offset_right = 3683.0
 offset_bottom = 685.0
 color = Color(1, 0, 0, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_pdlt5")
+cell_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(720925, 0, 65536, 786461, 0, 65536, 851997, 0, 65536, 917533, 0, 65536, 983069, 0, 65536, 1048605, 0, 65536, 1114141, 0, 65536, 1179677, 0, 65536, 1245213, 0, 65536, 655389, 0, 65536, 655390, 0, 65536, 720926, 0, 65536, 720927, 0, 65536, 720928, 0, 65536, 655392, 0, 65536, 655391, 0, 65536, 655393, 0, 65536, 720929, 0, 65536, 786465, 0, 65536, 786464, 0, 65536, 786463, 0, 65536, 852000, 0, 65536, 852001, 0, 65536, 917537, 0, 65536, 917538, 0, 65536, 983074, 0, 65536, 983075, 0, 65536, 1048611, 0, 65536, 1114147, 0, 65536, 1179683, 0, 65536, 1179684, 0, 65536, 1245219, 0, 65536, 1310755, 0, 65536, 1310754, 0, 65536, 1245217, 0, 65536, 1245216, 0, 65536, 1245215, 0, 65536, 1245214, 0, 65536, 1245218, 0, 65536, 1310753, 0, 65536, 1310752, 0, 65536, 1310751, 0, 65536, 1310750, 0, 65536, 1310749, 0, 65536, 1179678, 0, 65536, 1179679, 0, 65536, 1179680, 0, 65536, 1179681, 0, 65536, 1179682, 0, 65536, 1114146, 0, 65536, 1114145, 0, 65536, 1114144, 0, 65536, 1114143, 0, 65536, 1114142, 0, 65536, 1048606, 0, 65536, 1048607, 0, 65536, 1048608, 0, 65536, 1048609, 0, 65536, 1048610, 0, 65536, 983073, 0, 65536, 983072, 0, 65536, 983071, 0, 65536, 983070, 0, 65536, 917534, 0, 65536, 917535, 0, 65536, 917536, 0, 65536, 851999, 0, 65536, 851998, 0, 65536, 786462, 0, 65536, 589853, 0, 131072, 524317, 0, 131072, 458781, 0, 131072, 458782, 0, 131072, 524318, 0, 131072, 589854, 0, 131072, 589855, 0, 131072, 524319, 0, 131072, 458783, 0, 131072, 458784, 0, 131072, 524320, 0, 131072, 589856, 0, 131072, 589857, 0, 131072, 524321, 0, 131072, 458785, 0, 131072)

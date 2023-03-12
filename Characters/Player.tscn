@@ -1,17 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://becahrjgy1o5x"]
+[gd_scene load_steps=13 format=3 uid="uid://becahrjgy1o5x"]
 
 [ext_resource type="Script" path="res://Characters/Player.gd" id="1_xhoo1"]
 [ext_resource type="Texture2D" uid="uid://csoroq68sa8tx" path="res://Assets/Sprites/body.png" id="2_q4mt7"]
 [ext_resource type="Texture2D" uid="uid://biqaq6oaxo2a3" path="res://Assets/Sprites/hand.png" id="3_3hueq"]
-[ext_resource type="Texture2D" uid="uid://06a2ssilkjty" path="res://icon.svg" id="4_lpi0l"]
 [ext_resource type="Texture2D" uid="uid://1u58q3hnhemd" path="res://Assets/Sprites/legs.png" id="5_utam8"]
 [ext_resource type="Texture2D" uid="uid://dg46etplbcls2" path="res://Assets/Sprites/head.png" id="6_gpyie"]
 [ext_resource type="AudioStream" uid="uid://7tc7fmbii67p" path="res://Assets/SFX/bfough.mp3" id="7_ulwaa"]
 [ext_resource type="AudioStream" uid="uid://bmfnswn1skjda" path="res://Assets/SFX/zzshcheeuww.mp3" id="8_4bmaq"]
 [ext_resource type="AudioStream" uid="uid://bipeic1qavgpw" path="res://Assets/SFX/zzcheuuffw.mp3" id="9_ndxko"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jqn5y"]
-radius = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fpvdk"]
 atlas = ExtResource("5_utam8")
@@ -67,20 +63,9 @@ one_shot = true
 z_index = 10
 position = Vector2(26, 3)
 
-[node name="Area2D" type="Area2D" parent="Hand_R"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand_R/Area2D"]
-shape = SubResource("CircleShape2D_jqn5y")
-
 [node name="Sprite2D" type="Sprite2D" parent="Hand_R"]
 scale = Vector2(2, 2)
 texture = ExtResource("3_3hueq")
-
-[node name="lastpin" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(-97, -133)
-scale = Vector2(0.21875, 0.21875)
-texture = ExtResource("4_lpi0l")
 
 [node name="Hand_L" type="Node2D" parent="."]
 z_index = 10
@@ -143,7 +128,5 @@ target_position = Vector2(0, 14)
 collision_mask = 2
 
 [connection signal="timeout" from="Body/BombCooldown" to="." method="_on_bomb_cooldown_timeout"]
-[connection signal="body_entered" from="Hand_R/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Hand_R/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Grab_CD_L" to="." method="_on_grab_cd_l_timeout"]
 [connection signal="timeout" from="Grab_CD_R" to="." method="_on_grab_cd_r_timeout"]
