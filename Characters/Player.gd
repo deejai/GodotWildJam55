@@ -17,8 +17,10 @@ const JUMP_VELOCITY = -400.0
 
 @onready var bomb_timer: Timer = $Body/BombCooldown
 @onready var bomb: Sprite2D = $Body/BombSprite
-@onready var bomb_explosion_particles: PackedScene = load("res://Objects/ExplosionParticles.tscn")
+@onready var bomb_explosion_particles: PackedScene = load("res://Particles/ExplodeMove.tscn")
 @onready var explode_move_player: AudioStreamPlayer2D = $ExplodeMovePlayer
+
+@onready var sand: PackedScene = load("res://Particles/SandThrow.tscn")
 
 @onready var rope_shoot_player: AudioStreamPlayer2D = $RopeShootPlayer
 @onready var rope_dud_player: AudioStreamPlayer2D = $RopeDudPlayer
@@ -71,6 +73,12 @@ func _process(delta):
 		explode_move_player.play()
 		apply_central_impulse(-bomb.position.normalized() * 800.0)
 
+	if Input.is_action_just_pressed("throw"):
+		var new_sand = sand.instantiate()
+		new_sand.position = dir_to_mouse * 20.0
+		new_sand.rotation = dir_to_mouse.angle()
+		add_child(new_sand)
+
 	var direction = Input.get_axis("walk_left", "walk_right")
 	if direction:
 		if groundcast.is_colliding():
@@ -79,7 +87,7 @@ func _process(delta):
 				walk_impulse_cd.start()
 		else:
 			apply_central_force(Vector2(direction * SPEED, 0.0))
-
+ 
 	bomb.position = dir_to_mouse * 30.0
 	queue_redraw()
 

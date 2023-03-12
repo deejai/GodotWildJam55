@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://do7qtihu6y18"]
+
+[sub_resource type="Gradient" id="Gradient_bdh3r"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7cde4"]
+gradient = SubResource("Gradient_bdh3r")
+width = 32
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2prn3"]
+size = Vector2(32, 32)
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = SubResource("GradientTexture2D_7cde4")
+
+[node name="NormalWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NormalWall"]
+shape = SubResource("RectangleShape2D_2prn3")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8g766i615uel"]
+[gd_scene load_steps=12 format=3 uid="uid://b8g766i615uel"]
 
 [ext_resource type="Script" path="res://Demo.gd" id="1_c2b6g"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="1_rurpj"]
 [ext_resource type="Script" path="res://Objects/Grabbable.gd" id="2_fhm0t"]
+[ext_resource type="PackedScene" uid="uid://do7qtihu6y18" path="res://Construction/NormalWall.tscn" id="4_xbwc3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fcfpm"]
 
@@ -14,6 +15,13 @@ size = Vector2(408, 20)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ndywe"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u3p7y"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j2vt5"]
+scenes/2/scene = ExtResource("4_xbwc3")
+
+[sub_resource type="TileSet" id="TileSet_fkbfu"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_j2vt5")
 
 [node name="Demo" type="Node2D"]
 script = ExtResource("1_c2b6g")
@@ -115,3 +123,8 @@ offset_top = 645.0
 offset_right = 3683.0
 offset_bottom = 685.0
 color = Color(1, 0, 0, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_fkbfu")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 131072, 65536, 0, 131072, 131072, 0, 131072, 131073, 0, 131072, 65537, 0, 131072, 65538, 0, 131072, 65539, 0, 131072, 65540, 0, 131072, 131075, 0, 131072, 196611, 0, 131072, 196612, 0, 131072)

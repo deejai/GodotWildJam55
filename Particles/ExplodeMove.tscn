@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://fnnf7t37lx4c"]
+[gd_scene load_steps=6 format=3 uid="uid://d0fftaqsytyke"]
 
-[ext_resource type="Texture2D" uid="uid://ctw67mvxuqdnf" path="res://Assets/Sprites/purple_cloud.png" id="1_o7brf"]
-[ext_resource type="Script" path="res://Objects/ExplosionParticles.gd" id="2_vl32q"]
+[ext_resource type="Texture2D" uid="uid://ctw67mvxuqdnf" path="res://Assets/Sprites/purple_cloud.png" id="1_au4hy"]
+[ext_resource type="Script" path="res://Particles/OneShotParticles.gd" id="2_g0ccn"]
 
 [sub_resource type="Gradient" id="Gradient_tip1p"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -26,9 +26,9 @@ position = Vector2(548, 600)
 scale = Vector2(0.265625, 0.265625)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_voif7")
-texture = ExtResource("1_o7brf")
+texture = ExtResource("1_au4hy")
 lifetime = 0.25
 one_shot = true
 explosiveness = 0.95
 randomness = 0.81
-script = ExtResource("2_vl32q")
+script = ExtResource("2_g0ccn")

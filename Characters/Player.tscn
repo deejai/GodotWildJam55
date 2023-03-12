@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://becahrjgy1o5x"]
+[gd_scene load_steps=19 format=3 uid="uid://becahrjgy1o5x"]
 
 [ext_resource type="Script" path="res://Characters/Player.gd" id="1_xhoo1"]
 [ext_resource type="Texture2D" uid="uid://csoroq68sa8tx" path="res://Assets/Sprites/body.png" id="2_q4mt7"]
 [ext_resource type="Texture2D" uid="uid://biqaq6oaxo2a3" path="res://Assets/Sprites/hand.png" id="3_3hueq"]
-[ext_resource type="Texture2D" uid="uid://06a2ssilkjty" path="res://icon.svg" id="4_lpi0l"]
+[ext_resource type="Texture2D" uid="uid://5u6v4y6ofotc" path="res://Assets/Sprites/legs_sheet.png" id="5_aj0qm"]
 [ext_resource type="Texture2D" uid="uid://1u58q3hnhemd" path="res://Assets/Sprites/legs.png" id="5_utam8"]
 [ext_resource type="Texture2D" uid="uid://dg46etplbcls2" path="res://Assets/Sprites/head.png" id="6_gpyie"]
 [ext_resource type="AudioStream" uid="uid://7tc7fmbii67p" path="res://Assets/SFX/bfough.mp3" id="7_ulwaa"]
@@ -17,9 +17,25 @@ radius = 16.0
 atlas = ExtResource("5_utam8")
 region = Rect2(0, 0, 26, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g036t"]
-atlas = ExtResource("5_utam8")
-region = Rect2(0, 0, 26, 19)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mknh"]
+atlas = ExtResource("5_aj0qm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8n7u"]
+atlas = ExtResource("5_aj0qm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcp5p"]
+atlas = ExtResource("5_aj0qm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7rfx"]
+atlas = ExtResource("5_aj0qm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghd7c"]
+atlas = ExtResource("5_aj0qm")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_niif6"]
 animations = [{
@@ -33,7 +49,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g036t")
+"texture": SubResource("AtlasTexture_8mknh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8n7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcp5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7rfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghd7c")
 }],
 "loop": true,
 "name": &"walk",
@@ -76,12 +104,6 @@ shape = SubResource("CircleShape2D_jqn5y")
 scale = Vector2(2, 2)
 texture = ExtResource("3_3hueq")
 
-[node name="lastpin" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(-97, -133)
-scale = Vector2(0.21875, 0.21875)
-texture = ExtResource("4_lpi0l")
-
 [node name="Hand_L" type="Node2D" parent="."]
 z_index = 10
 position = Vector2(-25, 3)
@@ -94,9 +116,12 @@ texture = ExtResource("3_3hueq")
 position = Vector2(0, 42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Legs"]
+position = Vector2(0, -15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_niif6")
 animation = &"walk"
+frame_progress = 0.285049
+speed_scale = 2.0
 
 [node name="Head" type="Node2D" parent="."]
 position = Vector2(0, -40)
@@ -138,8 +163,8 @@ wait_time = 0.35
 one_shot = true
 
 [node name="GroundCast" type="RayCast2D" parent="."]
-position = Vector2(0, 54)
-target_position = Vector2(0, 14)
+position = Vector2(0, 46)
+target_position = Vector2(0, 18)
 collision_mask = 2
 
 [connection signal="timeout" from="Body/BombCooldown" to="." method="_on_bomb_cooldown_timeout"]
