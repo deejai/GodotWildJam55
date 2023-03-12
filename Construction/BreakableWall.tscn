@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3osqgv5ac57q"]
+
+[ext_resource type="Script" path="res://Construction/BreakableWall.gd" id="1_0cl0f"]
+[ext_resource type="Texture2D" uid="uid://06a2ssilkjty" path="res://icon.svg" id="2_a40y1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yybe4"]
+atlas = ExtResource("2_a40y1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jqrx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yybe4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knhp0"]
+size = Vector2(32, 32)
+
+[node name="BreakableWall" type="RigidBody2D"]
+collision_layer = 3
+script = ExtResource("1_0cl0f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_3jqrx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_knhp0")

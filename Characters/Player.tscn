@@ -10,9 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://bmfnswn1skjda" path="res://Assets/SFX/zzshcheeuww.mp3" id="8_4bmaq"]
 [ext_resource type="AudioStream" uid="uid://bipeic1qavgpw" path="res://Assets/SFX/zzcheuuffw.mp3" id="9_ndxko"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jqn5y"]
-radius = 16.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_fpvdk"]
 atlas = ExtResource("5_utam8")
 region = Rect2(0, 0, 26, 19)
@@ -95,11 +92,6 @@ one_shot = true
 z_index = 10
 position = Vector2(26, 3)
 
-[node name="Area2D" type="Area2D" parent="Hand_R"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand_R/Area2D"]
-shape = SubResource("CircleShape2D_jqn5y")
-
 [node name="Sprite2D" type="Sprite2D" parent="Hand_R"]
 scale = Vector2(2, 2)
 texture = ExtResource("3_3hueq")
@@ -168,7 +160,5 @@ target_position = Vector2(0, 18)
 collision_mask = 2
 
 [connection signal="timeout" from="Body/BombCooldown" to="." method="_on_bomb_cooldown_timeout"]
-[connection signal="body_entered" from="Hand_R/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Hand_R/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Grab_CD_L" to="." method="_on_grab_cd_l_timeout"]
 [connection signal="timeout" from="Grab_CD_R" to="." method="_on_grab_cd_r_timeout"]
