@@ -1,0 +1,149 @@
+[gd_scene load_steps=15 format=3 uid="uid://becahrjgy1o5x"]
+
+[ext_resource type="Script" path="res://Characters/Player.gd" id="1_xhoo1"]
+[ext_resource type="Texture2D" uid="uid://csoroq68sa8tx" path="res://Assets/Sprites/body.png" id="2_q4mt7"]
+[ext_resource type="Texture2D" uid="uid://biqaq6oaxo2a3" path="res://Assets/Sprites/hand.png" id="3_3hueq"]
+[ext_resource type="Texture2D" uid="uid://06a2ssilkjty" path="res://icon.svg" id="4_lpi0l"]
+[ext_resource type="Texture2D" uid="uid://1u58q3hnhemd" path="res://Assets/Sprites/legs.png" id="5_utam8"]
+[ext_resource type="Texture2D" uid="uid://dg46etplbcls2" path="res://Assets/Sprites/head.png" id="6_gpyie"]
+[ext_resource type="AudioStream" uid="uid://7tc7fmbii67p" path="res://Assets/SFX/bfough.mp3" id="7_ulwaa"]
+[ext_resource type="AudioStream" uid="uid://bmfnswn1skjda" path="res://Assets/SFX/zzshcheeuww.mp3" id="8_4bmaq"]
+[ext_resource type="AudioStream" uid="uid://bipeic1qavgpw" path="res://Assets/SFX/zzcheuuffw.mp3" id="9_ndxko"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jqn5y"]
+radius = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpvdk"]
+atlas = ExtResource("5_utam8")
+region = Rect2(0, 0, 26, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g036t"]
+atlas = ExtResource("5_utam8")
+region = Rect2(0, 0, 26, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_niif6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpvdk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g036t")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwadm"]
+radius = 16.0
+height = 92.0
+
+[node name="Player" type="RigidBody2D"]
+lock_rotation = true
+script = ExtResource("1_xhoo1")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_q4mt7")
+
+[node name="BombSprite" type="Sprite2D" parent="Body"]
+position = Vector2(-34, 23)
+scale = Vector2(0.265625, 0.265625)
+
+[node name="BombCooldown" type="Timer" parent="Body"]
+one_shot = true
+
+[node name="ExplodeMoveFullSpeed" type="Timer" parent="Body"]
+
+[node name="Hand_R" type="Node2D" parent="."]
+z_index = 10
+position = Vector2(26, 3)
+
+[node name="Area2D" type="Area2D" parent="Hand_R"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand_R/Area2D"]
+shape = SubResource("CircleShape2D_jqn5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand_R"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_3hueq")
+
+[node name="lastpin" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-97, -133)
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("4_lpi0l")
+
+[node name="Hand_L" type="Node2D" parent="."]
+z_index = 10
+position = Vector2(-25, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand_L"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_3hueq")
+
+[node name="Legs" type="Node2D" parent="."]
+position = Vector2(0, 42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Legs"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_niif6")
+animation = &"walk"
+
+[node name="Head" type="Node2D" parent="."]
+position = Vector2(0, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Head"]
+scale = Vector2(2, 2)
+texture = ExtResource("6_gpyie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15)
+shape = SubResource("CapsuleShape2D_jwadm")
+
+[node name="RopeCast" type="RayCast2D" parent="."]
+target_position = Vector2(450, 0)
+collision_mask = 2
+
+[node name="Grab_CD_L" type="Timer" parent="."]
+
+[node name="Grab_CD_R" type="Timer" parent="."]
+
+[node name="ExplodeMovePlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ulwaa")
+
+[node name="RopeShootPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-34, 23)
+scale = Vector2(0.265625, 0.265625)
+stream = ExtResource("8_4bmaq")
+
+[node name="RopeDudPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-34, 23)
+scale = Vector2(0.265625, 0.265625)
+stream = ExtResource("9_ndxko")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+
+[node name="WalkImpulseCD" type="Timer" parent="."]
+wait_time = 0.35
+one_shot = true
+
+[node name="GroundCast" type="RayCast2D" parent="."]
+position = Vector2(0, 54)
+target_position = Vector2(0, 14)
+collision_mask = 2
+
+[connection signal="timeout" from="Body/BombCooldown" to="." method="_on_bomb_cooldown_timeout"]
+[connection signal="body_entered" from="Hand_R/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Hand_R/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Grab_CD_L" to="." method="_on_grab_cd_l_timeout"]
+[connection signal="timeout" from="Grab_CD_R" to="." method="_on_grab_cd_r_timeout"]

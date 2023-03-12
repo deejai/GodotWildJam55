@@ -1,28 +1,117 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm381nrnsdg7t"]
+[gd_scene load_steps=9 format=3 uid="uid://b8g766i615uel"]
 
-[ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Player.tscn" id="1_rurpj"]
+[ext_resource type="Script" path="res://Demo.gd" id="1_c2b6g"]
+[ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="1_rurpj"]
+[ext_resource type="Script" path="res://Objects/Grabbable.gd" id="2_fhm0t"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fcfpm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lugfq"]
 size = Vector2(408, 20)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cx1mk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ndywe"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u3p7y"]
+
 [node name="Demo" type="Node2D"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(225, 419)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_lugfq")
+script = ExtResource("1_c2b6g")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(834, 202)
+physics_material_override = SubResource("PhysicsMaterial_fcfpm")
+script = ExtResource("2_fhm0t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource("RectangleShape2D_lugfq")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(580, 636)
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+position = Vector2(571, 631)
+physics_material_override = SubResource("PhysicsMaterial_fcfpm")
+script = ExtResource("2_fhm0t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+shape = SubResource("RectangleShape2D_lugfq")
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+position = Vector2(245, 359)
+physics_material_override = SubResource("PhysicsMaterial_fcfpm")
+script = ExtResource("2_fhm0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D12"]
+shape = SubResource("RectangleShape2D_lugfq")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2(1201, -156)
+physics_material_override = SubResource("PhysicsMaterial_fcfpm")
+script = ExtResource("2_fhm0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+shape = SubResource("RectangleShape2D_lugfq")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2(451, 31)
+physics_material_override = SubResource("PhysicsMaterial_fcfpm")
+script = ExtResource("2_fhm0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+shape = SubResource("RectangleShape2D_lugfq")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(1808, 55)
+physics_material_override = SubResource("PhysicsMaterial_fcfpm")
+script = ExtResource("2_fhm0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("RectangleShape2D_lugfq")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(2580, -34)
+physics_material_override = SubResource("PhysicsMaterial_fcfpm")
+script = ExtResource("2_fhm0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+shape = SubResource("RectangleShape2D_lugfq")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(3111, 226)
+physics_material_override = SubResource("PhysicsMaterial_fcfpm")
+script = ExtResource("2_fhm0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+shape = SubResource("RectangleShape2D_lugfq")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2(3273, 554)
+physics_material_override = SubResource("PhysicsMaterial_fcfpm")
+script = ExtResource("2_fhm0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
 shape = SubResource("RectangleShape2D_lugfq")
 
 [node name="Player" parent="." instance=ExtResource("1_rurpj")]
+position = Vector2(553, 414)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(573, 645)
+shape = SubResource("WorldBoundaryShape2D_cx1mk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(2, 280)
+rotation = 1.57079
+shape = SubResource("WorldBoundaryShape2D_ndywe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(3575, 261)
+rotation = 4.71238
+shape = SubResource("WorldBoundaryShape2D_u3p7y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 2.0
+offset_top = 645.0
+offset_right = 3683.0
+offset_bottom = 685.0
+color = Color(1, 0, 0, 1)

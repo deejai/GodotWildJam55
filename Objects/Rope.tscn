@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c22pkwmk883ru"]
+
+[ext_resource type="Script" path="res://Objects/Rope.gd" id="1_r3d4t"]
+[ext_resource type="Texture2D" uid="uid://doqxo84m24h0k" path="res://Assets/Sprites/ropetile.png" id="2_m237j"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_r3d4t")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, -37, 77)
+width = 3.0
+texture = ExtResource("2_m237j")
+texture_mode = 1
