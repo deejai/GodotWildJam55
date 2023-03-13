@@ -3,14 +3,13 @@ extends RigidBody2D
 const SPEED = 80.0
 const JUMP_VELOCITY = -400.0
 
-@onready var groundcast: RayCast2D = $GroundCast
+@onready var groundcasts: Array = $GroundCasts.get_children()
 @onready var walk_impulse_cd: Timer = $WalkImpulseCD
+var grounded: bool = false
 
 @onready var body: Node2D = $Body
 @onready var hand_R: Node2D = $Hand_R
 @onready var hand_L: Node2D = $Hand_L
-@onready var grab_area_R: Area2D = $Hand_R/Area2D
-@onready var grab_area_collision_R: CollisionShape2D = $Hand_R/Area2D/CollisionShape2D
 @onready var grab_cd_R: Timer = $Grab_CD_R
 @onready var grab_cd_L: Timer = $Grab_CD_L
 @onready var grapple_pin_R: Vector2
@@ -43,6 +42,12 @@ func _ready():
 	pass
 
 func _process(delta):
+	grounded = false
+	for groundcast in groundcasts:
+		if groundcast.is_colliding():
+			grounded = true
+			break
+
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var dir_to_mouse: Vector2 = position.direction_to(mouse_pos)
 	ropecast.rotation = dir_to_mouse.angle()
@@ -71,7 +76,7 @@ func _process(delta):
 		bomb.visible = false
 		bomb_timer.start()
 		explode_move_player.play()
-		apply_central_impulse(-bomb.position.normalized() * 800.0)
+		apply_central_impulse(bomb.position.normalized() * 800.0)
 
 	if Input.is_action_just_pressed("throw"):
 		var new_sand = sand.instantiate()
@@ -81,7 +86,7 @@ func _process(delta):
 
 	var direction = Input.get_axis("walk_left", "walk_right")
 	if direction:
-		if groundcast.is_colliding():
+		if grounded:
 			if walk_impulse_cd.is_stopped():
 				apply_central_impulse(Vector2(direction * SPEED, -100.0))
 				walk_impulse_cd.start()
