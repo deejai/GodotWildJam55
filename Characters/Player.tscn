@@ -1,18 +1,26 @@
-[gd_scene load_steps=18 format=3 uid="uid://becahrjgy1o5x"]
+[gd_scene load_steps=20 format=3 uid="uid://becahrjgy1o5x"]
 
 [ext_resource type="Script" path="res://Characters/Player.gd" id="1_xhoo1"]
 [ext_resource type="Texture2D" uid="uid://csoroq68sa8tx" path="res://Assets/Sprites/body.png" id="2_q4mt7"]
 [ext_resource type="Texture2D" uid="uid://biqaq6oaxo2a3" path="res://Assets/Sprites/hand.png" id="3_3hueq"]
+[ext_resource type="Texture2D" uid="uid://doiqf23vqaliv" path="res://Assets/Sprites/explode_move_arrow.png" id="3_ut7fm"]
 [ext_resource type="Texture2D" uid="uid://5u6v4y6ofotc" path="res://Assets/Sprites/legs_sheet.png" id="5_aj0qm"]
-[ext_resource type="Texture2D" uid="uid://1u58q3hnhemd" path="res://Assets/Sprites/legs.png" id="5_utam8"]
 [ext_resource type="Texture2D" uid="uid://dg46etplbcls2" path="res://Assets/Sprites/head.png" id="6_gpyie"]
 [ext_resource type="AudioStream" uid="uid://7tc7fmbii67p" path="res://Assets/SFX/bfough.mp3" id="7_ulwaa"]
 [ext_resource type="AudioStream" uid="uid://bmfnswn1skjda" path="res://Assets/SFX/zzshcheeuww.mp3" id="8_4bmaq"]
 [ext_resource type="AudioStream" uid="uid://bipeic1qavgpw" path="res://Assets/SFX/zzcheuuffw.mp3" id="9_ndxko"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fpvdk"]
-atlas = ExtResource("5_utam8")
-region = Rect2(0, 0, 26, 19)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xneih"]
+atlas = ExtResource("5_aj0qm")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih28c"]
+atlas = ExtResource("5_aj0qm")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cth4j"]
+atlas = ExtResource("5_aj0qm")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8mknh"]
 atlas = ExtResource("5_aj0qm")
@@ -38,7 +46,18 @@ region = Rect2(32, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fpvdk")
+"texture": SubResource("AtlasTexture_xneih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih28c")
+}],
+"loop": true,
+"name": &"airborne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cth4j")
 }],
 "loop": true,
 "name": &"idle",
@@ -79,11 +98,13 @@ script = ExtResource("1_xhoo1")
 scale = Vector2(2, 2)
 texture = ExtResource("2_q4mt7")
 
-[node name="BombSprite" type="Sprite2D" parent="Body"]
-position = Vector2(-34, 23)
-scale = Vector2(0.265625, 0.265625)
+[node name="ExplodeMoveArrow" type="Sprite2D" parent="Body"]
+modulate = Color(1, 1, 1, 0.384314)
+position = Vector2(60, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ut7fm")
 
-[node name="BombCooldown" type="Timer" parent="Body"]
+[node name="ExplodeMoveCooldown" type="Timer" parent="Body"]
 one_shot = true
 
 [node name="ExplodeMoveFullSpeed" type="Timer" parent="Body"]
@@ -111,8 +132,8 @@ position = Vector2(0, 42)
 position = Vector2(0, -15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_niif6")
-animation = &"walk"
-frame_progress = 0.285049
+animation = &"airborne"
+frame_progress = 0.952708
 speed_scale = 2.0
 
 [node name="Head" type="Node2D" parent="."]
@@ -181,6 +202,6 @@ position = Vector2(14, 46)
 target_position = Vector2(0, 18)
 collision_mask = 2
 
-[connection signal="timeout" from="Body/BombCooldown" to="." method="_on_bomb_cooldown_timeout"]
+[connection signal="timeout" from="Body/ExplodeMoveCooldown" to="." method="_on_explode_move_cooldown_timeout"]
 [connection signal="timeout" from="Grab_CD_L" to="." method="_on_grab_cd_l_timeout"]
 [connection signal="timeout" from="Grab_CD_R" to="." method="_on_grab_cd_r_timeout"]

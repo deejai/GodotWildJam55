@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const SPEED = 80.0
+const WALK_SPEED = 180.0
 const JUMP_VELOCITY = -400.0
 
 @onready var groundcasts: Array = $GroundCasts.get_children()
@@ -10,13 +10,19 @@ var grounded: bool = false
 @onready var body: Node2D = $Body
 @onready var hand_R: Node2D = $Hand_R
 @onready var hand_L: Node2D = $Hand_L
+@onready var legs: Node2D = $Legs
+
+@onready var head_sprite: Sprite2D = $Head/Sprite2D
+@onready var body_sprite: Sprite2D = $Body/Sprite2D
+@onready var legs_sprite: AnimatedSprite2D = $Legs/AnimatedSprite2D
+
 @onready var grab_cd_R: Timer = $Grab_CD_R
 @onready var grab_cd_L: Timer = $Grab_CD_L
 @onready var grapple_pin_R: Vector2
 
-@onready var bomb_timer: Timer = $Body/BombCooldown
-@onready var bomb: Sprite2D = $Body/BombSprite
-@onready var bomb_explosion_particles: PackedScene = load("res://Particles/ExplodeMove.tscn")
+@onready var explode_move_timer: Timer = $Body/ExplodeMoveCooldown
+@onready var explode_move_arrow: Sprite2D = $Body/ExplodeMoveArrow
+@onready var explode_move_explosion_particles: PackedScene = load("res://Particles/ExplodeMove.tscn")
 @onready var explode_move_player: AudioStreamPlayer2D = $ExplodeMovePlayer
 
 @onready var sand: PackedScene = load("res://Particles/SandThrow.tscn")
@@ -39,7 +45,7 @@ var x_bonus_dir: Vector2
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	pass
+	legs_sprite.play()
 
 func _process(delta):
 	grounded = false
@@ -47,6 +53,13 @@ func _process(delta):
 		if groundcast.is_colliding():
 			grounded = true
 			break
+
+	if not walk_impulse_cd.is_stopped():
+		legs_sprite.animation = "walk"
+	elif grounded:
+		legs_sprite.animation = "idle"
+	else:
+		legs_sprite.animation = "airborne"
 
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var dir_to_mouse: Vector2 = position.direction_to(mouse_pos)
@@ -69,14 +82,14 @@ func _process(delta):
 			grab_cd_R.start()
 			shoot_rope(hand_R)
 
-	if Input.is_action_just_pressed("explode") and bomb_timer.is_stopped():
-		var explosion = bomb_explosion_particles.instantiate()
-		explosion.position = bomb.global_position
+	if Input.is_action_just_pressed("explode") and explode_move_timer.is_stopped():
+		var explosion = explode_move_explosion_particles.instantiate()
+		explosion.position = position - dir_to_mouse * 30.0
 		get_parent().add_child(explosion)
-		bomb.visible = false
-		bomb_timer.start()
+		explode_move_arrow.visible = false
+		explode_move_timer.start()
 		explode_move_player.play()
-		apply_central_impulse(bomb.position.normalized() * 800.0)
+		apply_central_impulse(dir_to_mouse * 800.0)
 
 	if Input.is_action_just_pressed("throw"):
 		var new_sand = sand.instantiate()
@@ -84,16 +97,22 @@ func _process(delta):
 		new_sand.rotation = dir_to_mouse.angle()
 		add_child(new_sand)
 
+	var flip_sprites: bool = dir_to_mouse.x < 0.0
+	legs_sprite.flip_h = flip_sprites
+	body_sprite.flip_h = flip_sprites
+	head_sprite.flip_h = flip_sprites
+
 	var direction = Input.get_axis("walk_left", "walk_right")
 	if direction:
 		if grounded:
 			if walk_impulse_cd.is_stopped():
-				apply_central_impulse(Vector2(direction * SPEED, -100.0))
+				apply_central_impulse(Vector2(direction * WALK_SPEED, -100.0))
 				walk_impulse_cd.start()
 		else:
-			apply_central_force(Vector2(direction * SPEED, 0.0))
+			apply_central_force(Vector2(direction * WALK_SPEED, 0.0))
  
-	bomb.position = dir_to_mouse * 30.0
+	explode_move_arrow.position = dir_to_mouse * 60.0
+	explode_move_arrow.rotation = dir_to_mouse.angle()
 	queue_redraw()
 
 func _physics_process(delta):
@@ -115,8 +134,8 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	pass
 
-func _on_bomb_cooldown_timeout():
-	bomb.visible = true
+func _on_explode_move_cooldown_timeout():
+	explode_move_arrow.visible = true
 
 func _on_grab_cd_l_timeout():
 	grabbing_L = false
@@ -135,7 +154,7 @@ func shoot_rope(hand: Node2D):
 		rope_shoot_player.play()
 	else:
 		var dud = dudrope.instantiate()
-		dud.position = hand.global_position + Vector2.RIGHT.rotated(ropecast.rotation) * 30.0
+		dud.position = hand.global_position + Vector2.RIGHT.rotated(ropecast.rotation) * 5.0
 		dud.linear_velocity = Vector2.RIGHT.rotated(ropecast.rotation) * 100.0
 		dud.rotation = ropecast.rotation
 		get_parent().add_child(dud)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0fftaqsytyke"]
 
-[ext_resource type="Texture2D" uid="uid://ctw67mvxuqdnf" path="res://Assets/Sprites/purple_cloud.png" id="1_au4hy"]
+[ext_resource type="Texture2D" uid="uid://dkcbyg602gwtn" path="res://Assets/Sprites/explode_move_cloud.png" id="1_wht58"]
 [ext_resource type="Script" path="res://Particles/OneShotParticles.gd" id="2_g0ccn"]
 
 [sub_resource type="Gradient" id="Gradient_tip1p"]
@@ -26,7 +26,7 @@ position = Vector2(548, 600)
 scale = Vector2(0.265625, 0.265625)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_voif7")
-texture = ExtResource("1_au4hy")
+texture = ExtResource("1_wht58")
 lifetime = 0.25
 one_shot = true
 explosiveness = 0.95
