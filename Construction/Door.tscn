@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://th3peq7b48sv"]
+[gd_scene load_steps=4 format=3 uid="uid://th3peq7b48sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atkv0"]
 size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_w01hh"]
+colors = PackedColorArray(0, 0, 0, 1, 0.47586, 0.287218, 0.0508368, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5eaq5"]
+gradient = SubResource("Gradient_w01hh")
+width = 32
+height = 32
 
 [node name="Door" type="StaticBody2D"]
 
@@ -9,3 +17,4 @@ size = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_atkv0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_5eaq5")

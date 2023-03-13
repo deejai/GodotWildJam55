@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://edg71x8vitgo"]
+
+[ext_resource type="PackedScene" uid="uid://b3osqgv5ac57q" path="res://Construction/BreakableWall.tscn" id="1_3nvm1"]
+
+[node name="WindowPane" type="Node2D"]
+
+[node name="BreakableWall" parent="." instance=ExtResource("1_3nvm1")]
+position = Vector2(24, 24)
+
+[node name="BreakableWall2" parent="." instance=ExtResource("1_3nvm1")]
+position = Vector2(72, 24)
+
+[node name="BreakableWall3" parent="." instance=ExtResource("1_3nvm1")]
+position = Vector2(120, 24)

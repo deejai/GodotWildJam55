@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://Objects/Grabbable.gd" id="1_xhp28"]
 
 [sub_resource type="Gradient" id="Gradient_4g3yq"]
+offsets = PackedFloat32Array(0, 0.993548)
+colors = PackedColorArray(0, 0, 0, 1, 0.0117647, 0, 0.894118, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hlp6d"]
 gradient = SubResource("Gradient_4g3yq")
