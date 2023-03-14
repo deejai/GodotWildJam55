@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cjlxs8pf2axma"]
+[gd_scene load_steps=24 format=3 uid="uid://cjlxs8pf2axma"]
 
 [ext_resource type="PackedScene" uid="uid://dxh1753q6n512" path="res://Construction/DirtGround.tscn" id="1_8fevv"]
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="2_0wl0p"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ky2704eu3e34" path="res://Construction/GrabbableWall.tscn" id="6_2haeq"]
 [ext_resource type="Script" path="res://Levels/FlyingEnemyPlatform.gd" id="9_cx20n"]
 [ext_resource type="Texture2D" uid="uid://06a2ssilkjty" path="res://icon.svg" id="10_aq7yq"]
+[ext_resource type="Script" path="res://Levels/fillpolygon.gd" id="10_e7rj8"]
 [ext_resource type="Script" path="res://Levels/Door.gd" id="11_4ebmk"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jl1v4"]
@@ -92,6 +93,7 @@ self_modulate = Color(0.164706, 0.529412, 0.501961, 1)
 material = SubResource("CanvasItemMaterial_utu8q")
 build_mode = 1
 polygon = PackedVector2Array(158, -96, 1, 1, -1, -244, 1318, -244, 833, -244, 701, -90, 573, -187, 400, -11)
+script = ExtResource("10_e7rj8")
 
 [node name="FlyingEnemyPlatform" type="AnimatableBody2D" parent="."]
 position = Vector2(1636, 546)
