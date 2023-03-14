@@ -25,7 +25,7 @@ var grounded: bool = false
 @onready var explode_move_explosion_particles: PackedScene = load("res://Particles/ExplodeMove.tscn")
 @onready var explode_move_player: AudioStreamPlayer2D = $ExplodeMovePlayer
 
-@onready var sand: PackedScene = load("res://Particles/SandThrow.tscn")
+@onready var sand_projectile: PackedScene = load("res://Objects/SandThrowProjectile.tscn")
 
 @onready var rope_shoot_player: AudioStreamPlayer2D = $RopeShootPlayer
 @onready var rope_dud_player: AudioStreamPlayer2D = $RopeDudPlayer
@@ -89,13 +89,14 @@ func _process(delta):
 		explode_move_arrow.visible = false
 		explode_move_timer.start()
 		explode_move_player.play()
-		apply_central_impulse(dir_to_mouse * 800.0)
+		apply_central_impulse(dir_to_mouse * 600.0)
 
 	if Input.is_action_just_pressed("throw"):
-		var new_sand = sand.instantiate()
-		new_sand.position = dir_to_mouse * 20.0
-		new_sand.rotation = dir_to_mouse.angle()
-		add_child(new_sand)
+		var new_sand_proj = sand_projectile.instantiate()
+		new_sand_proj.position = position + dir_to_mouse * 20.0
+		new_sand_proj.rotation = dir_to_mouse.angle()
+		new_sand_proj.bonus_velocity = Vector2(linear_velocity.x, 0.0).limit_length(450.0) if dir_to_mouse.x * linear_velocity.x > 0.0 else Vector2.ZERO
+		get_parent().add_child(new_sand_proj)
 
 	var flip_sprites: bool = dir_to_mouse.x < 0.0
 	legs_sprite.flip_h = flip_sprites

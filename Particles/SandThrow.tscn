@@ -1,29 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://c26utf8faeta7"]
-
-[ext_resource type="Script" path="res://Particles/OneShotParticles.gd" id="1_qkld6"]
+[gd_scene load_steps=6 format=3 uid="uid://c26utf8faeta7"]
 
 [sub_resource type="Gradient" id="Gradient_p8ggk"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.496296, 0.911111)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.34902)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_a75ul"]
 gradient = SubResource("Gradient_p8ggk")
 
+[sub_resource type="Curve" id="Curve_6o1m8"]
+min_value = -500.0
+max_value = 500.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1kuma"]
+curve = SubResource("Curve_6o1m8")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tvb1q"]
 particle_flag_disable_z = true
-spread = 15.0
-gravity = Vector3(0, 98, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 200.0
+spread = 50.0
+gravity = Vector3(0, 49, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
 orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_max = 2.0
+orbit_velocity_max = 1.5
+orbit_velocity_curve = SubResource("CurveTexture_1kuma")
+tangential_accel_min = -100.0
+tangential_accel_max = -100.0
+scale_max = 3.0
 color = Color(0.815686, 0.694118, 0.411765, 1)
 color_ramp = SubResource("GradientTexture1D_a75ul")
 
 [node name="SandThrow" type="GPUParticles2D"]
-emitting = false
+rotation = -1.57079
 amount = 64
 process_material = SubResource("ParticleProcessMaterial_tvb1q")
-one_shot = true
-explosiveness = 0.8
-script = ExtResource("1_qkld6")
+lifetime = 0.2

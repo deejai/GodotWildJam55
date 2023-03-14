@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dygstd4gbs22b"]
+[gd_scene load_steps=4 format=3 uid="uid://b5pkhpmd5gb5p"]
+
+[ext_resource type="PackedScene" uid="uid://bipkf1sgfi2c2" path="res://Particles/Fire.tscn" id="1_rx6ih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8sqq"]
 size = Vector2(32, 32)
@@ -12,5 +14,9 @@ size = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_b8sqq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.901961, 0.509804, 0.431373, 1)
 texture = SubResource("PlaceholderTexture2D_1k0io")
+
+[node name="Fire" parent="." instance=ExtResource("1_rx6ih")]
+position = Vector2(0, 9)
