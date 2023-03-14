@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfq5vlnk5vcut"]
+
+[ext_resource type="Script" path="res://Levels/Level33.gd" id="1_fytev"]
+[ext_resource type="PackedScene" uid="uid://dechlscjhxt8p" path="res://Levels/Level3.tscn" id="1_mwctk"]
+[ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="2_qlor8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10sli"]
+size = Vector2(375, 20)
+
+[node name="Level33" type="Node2D"]
+script = ExtResource("1_fytev")
+
+[node name="Level3" parent="." instance=ExtResource("1_mwctk")]
+position = Vector2(-185, -8436)
+scale = Vector2(0.7, 0.7)
+
+[node name="Player" parent="." instance=ExtResource("2_qlor8")]
+position = Vector2(2495, -2688)
+
+[node name="Finish line" type="Area2D" parent="."]
+position = Vector2(1735, -6519)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish line"]
+position = Vector2(6, 15)
+shape = SubResource("RectangleShape2D_10sli")
+
+[connection signal="body_entered" from="Finish line" to="." method="_on_area_2d_body_entered"]

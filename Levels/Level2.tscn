@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://calsd7i0glrcp" path="res://Construction/OneWayWall.tscn" id="3_bv6w7"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="3_g0esf"]
 [ext_resource type="PackedScene" uid="uid://th3peq7b48sv" path="res://Construction/Door.tscn" id="4_suh1t"]
-[ext_resource type="PackedScene" uid="uid://dygstd4gbs22b" path="res://Construction/Fire.tscn" id="5_ax86v"]
+[ext_resource type="PackedScene" uid="uid://b5pkhpmd5gb5p" path="res://Construction/Fire.tscn" id="5_ax86v"]
 [ext_resource type="Script" path="res://Levels/Ceiling.gd" id="5_v62br"]
 [ext_resource type="PackedScene" uid="uid://ky2704eu3e34" path="res://Construction/GrabbableWall.tscn" id="6_2haeq"]
 [ext_resource type="Script" path="res://Levels/FlyingEnemyPlatform.gd" id="9_cx20n"]
