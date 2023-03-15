@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Objects/Grabbable.gd" id="2_xsaps"]
 [ext_resource type="PackedScene" uid="uid://b5pkhpmd5gb5p" path="res://Construction/Fire.tscn" id="3_ighni"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="4_7efus"]
-[ext_resource type="PackedScene" path="res://Construction/BuildingWall.tscn" id="4_h327b"]
+[ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="4_h327b"]
 [ext_resource type="PackedScene" uid="uid://ky2704eu3e34" path="res://Construction/GrabbableWall.tscn" id="5_1py3a"]
 [ext_resource type="PackedScene" uid="uid://b3osqgv5ac57q" path="res://Construction/BreakableWall.tscn" id="6_1qrwh"]
 
@@ -42,7 +42,7 @@ collision_layer = 3
 shape = SubResource("RectangleShape2D_w7a2n")
 
 [node name="Platform3" type="StaticBody2D" parent="Platforms"]
-position = Vector2(1400, 3347)
+position = Vector2(1407, 3338)
 collision_layer = 3
 script = ExtResource("2_xsaps")
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdpnfg34qjgdv"]
+[gd_scene load_steps=2 format=3 uid="uid://c5kmlr0d8gnj6"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_8yqyy"]
+[ext_resource type="Script" path="res://Menus/Menu.gd" id="1_om052"]
 
 [node name="Menu" type="CanvasLayer"]
-script = ExtResource("1_8yqyy")
+script = ExtResource("1_om052")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

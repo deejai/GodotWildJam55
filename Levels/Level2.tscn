@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://bg736en0h5g6j"]
+[gd_scene load_steps=26 format=3 uid="uid://bg736en0h5g6j"]
 
 [ext_resource type="PackedScene" uid="uid://qc0kim7mlt5b" path="res://Construction/DirtGround.tscn" id="1_8fevv"]
+[ext_resource type="Script" path="res://Levels/Level2.gd" id="1_f7c8k"]
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="2_0wl0p"]
-[ext_resource type="PackedScene" path="res://Construction/BuildingWall.tscn" id="2_p3nfw"]
+[ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="2_p3nfw"]
 [ext_resource type="PackedScene" uid="uid://calsd7i0glrcp" path="res://Construction/OneWayWall.tscn" id="3_bv6w7"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="3_g0esf"]
 [ext_resource type="PackedScene" uid="uid://th3peq7b48sv" path="res://Construction/Door.tscn" id="4_suh1t"]
@@ -64,7 +65,10 @@ size = Vector2(20, 320)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ox8jd"]
 size = Vector2(20, 320)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mlx2"]
+
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_f7c8k")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(300, 16)
@@ -81,7 +85,7 @@ position = Vector2(300, 411)
 rotation = 1.5708
 
 [node name="Player" parent="." instance=ExtResource("3_g0esf")]
-position = Vector2(327, 649)
+position = Vector2(2561, 609)
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
 position = Vector2(300, 321)
@@ -133,4 +137,12 @@ modulate = Color(0.721569, 0.407843, 0.0431373, 1)
 self_modulate = Color(0.768627, 0.462745, 0.0392157, 1)
 texture = SubResource("PlaceholderTexture2D_ox8jd")
 
+[node name="Finish Line" type="Area2D" parent="."]
+position = Vector2(2688, 562)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish Line"]
+scale = Vector2(5.84033, 5.94096)
+shape = SubResource("RectangleShape2D_5mlx2")
+
 [connection signal="body_entered" from="Key" to="Door" method="_on_key_body_entered"]
+[connection signal="body_entered" from="Finish Line" to="." method="_on_finish_line_body_entered"]

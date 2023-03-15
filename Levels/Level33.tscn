@@ -15,7 +15,7 @@ position = Vector2(-185, -8436)
 scale = Vector2(0.7, 0.7)
 
 [node name="Player" parent="." instance=ExtResource("2_qlor8")]
-position = Vector2(2495, -2688)
+position = Vector2(1963, -6529)
 
 [node name="Finish line" type="Area2D" parent="."]
 position = Vector2(1735, -6519)
