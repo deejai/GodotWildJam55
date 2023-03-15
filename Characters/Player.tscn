@@ -133,7 +133,7 @@ position = Vector2(0, -15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_niif6")
 animation = &"airborne"
-frame_progress = 0.903981
+frame_progress = 0.112166
 speed_scale = 2.0
 
 [node name="Head" type="Node2D" parent="."]

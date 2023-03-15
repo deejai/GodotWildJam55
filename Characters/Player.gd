@@ -54,7 +54,7 @@ func _ready():
 
 func _process(delta):
 	queue_redraw()
-	if linear_velocity.length() > 800.0:
+	if linear_velocity.length() > 1050.0:
 		breaking_speed = true
 		breaking_speed_timer.start()
 
@@ -169,7 +169,12 @@ func shoot_rope(hand: Node2D):
 	else:
 		var dud = dudrope.instantiate()
 		dud.position = hand.global_position + Vector2.RIGHT.rotated(ropecast.rotation) * 5.0
-		dud.linear_velocity = Vector2.RIGHT.rotated(ropecast.rotation) * 100.0
+		dud.linear_velocity = Vector2.RIGHT.rotated(ropecast.rotation) * 500.0
+		
+		# if moving in same direction as shooting, boost horizontal speed
+		if linear_velocity.x * dud.position.x > 0.0:
+			dud.linear_velocity.x += linear_velocity.x
+
 		dud.rotation = ropecast.rotation
 		get_parent().add_child(dud)
 		rope_dud_player.play()
