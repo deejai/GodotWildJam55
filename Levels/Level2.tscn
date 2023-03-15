@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://qc0kim7mlt5b" path="res://Construction/DirtGround.tscn" id="1_8fevv"]
 [ext_resource type="Script" path="res://Levels/Level2.gd" id="1_f7c8k"]
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="2_0wl0p"]
-[ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="2_p3nfw"]
+[ext_resource type="PackedScene" path="res://Construction/BuildingWall.tscn" id="2_p3nfw"]
 [ext_resource type="PackedScene" uid="uid://calsd7i0glrcp" path="res://Construction/OneWayWall.tscn" id="3_bv6w7"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="3_g0esf"]
 [ext_resource type="PackedScene" uid="uid://th3peq7b48sv" path="res://Construction/Door.tscn" id="4_suh1t"]
@@ -85,7 +85,7 @@ position = Vector2(300, 411)
 rotation = 1.5708
 
 [node name="Player" parent="." instance=ExtResource("3_g0esf")]
-position = Vector2(2561, 609)
+position = Vector2(362, 630)
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
 position = Vector2(300, 321)

@@ -21,7 +21,6 @@ var progression_arr: Array = [
 	func(): get_tree().change_scene_to_packed(scenes.main_menu),
 	func(): print("test1"); return true,
 	func(): print("test2"); return true,
-	func(): print("test"); get_tree().change_scene_to_packed(scenes.boring),
 	func(): get_tree().change_scene_to_packed(scenes.intro1),
 	func(): get_tree().change_scene_to_packed(scenes.caves1_zoomed),
 ]

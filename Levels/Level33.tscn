@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnj3ecuohdxqo"]
+[gd_scene load_steps=6 format=3 uid="uid://cnj3ecuohdxqo"]
 
 [ext_resource type="Script" path="res://Levels/Level33.gd" id="1_fytev"]
 [ext_resource type="PackedScene" uid="uid://btguy24i1ecsr" path="res://Levels/Level3.tscn" id="1_mwctk"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10sli"]
 size = Vector2(375, 20)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wtxwm"]
+b = Vector2(0, 550)
 
 [node name="Level33" type="Node2D"]
 script = ExtResource("1_fytev")
@@ -15,7 +18,7 @@ position = Vector2(-185, -8436)
 scale = Vector2(0.7, 0.7)
 
 [node name="Player" parent="." instance=ExtResource("2_qlor8")]
-position = Vector2(1963, -6529)
+position = Vector2(2756, -2623)
 
 [node name="Finish line" type="Area2D" parent="."]
 position = Vector2(1735, -6519)
@@ -24,5 +27,11 @@ rotation = 1.5708
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish line"]
 position = Vector2(6, 15)
 shape = SubResource("RectangleShape2D_10sli")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2414, -3093)
+shape = SubResource("SegmentShape2D_wtxwm")
 
 [connection signal="body_entered" from="Finish line" to="." method="_on_area_2d_body_entered"]
