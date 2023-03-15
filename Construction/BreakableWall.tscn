@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://Construction/BreakableWall.gd" id="1_0cl0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knhp0"]
-size = Vector2(96, 46)
+size = Vector2(46, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tqi5"]
 size = Vector2(32, 32)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lgaob"]
-size = Vector2(96, 32)
+size = Vector2(32, 32)
 
 [node name="BreakableWall" type="StaticBody2D"]
 collision_layer = 3
