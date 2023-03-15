@@ -17,6 +17,7 @@ var grounded: bool = false
 @onready var head_sprite: Sprite2D = $Head/Sprite2D
 @onready var body_sprite: Sprite2D = $Body/Sprite2D
 @onready var legs_sprite: AnimatedSprite2D = $Legs/AnimatedSprite2D
+@onready var speed_streaks: AnimatedSprite2D = $SpeedStreaks
 
 @onready var grab_cd_R: Timer = $Grab_CD_R
 @onready var grab_cd_L: Timer = $Grab_CD_L
@@ -51,12 +52,19 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	legs_sprite.play()
+	speed_streaks.play()
 
 func _process(delta):
 	queue_redraw()
 	if linear_velocity.length() > 1050.0:
 		breaking_speed = true
 		breaking_speed_timer.start()
+
+	speed_streaks.visible = breaking_speed
+
+	speed_streaks.rotation = (-linear_velocity).angle()
+	speed_streaks.position = Vector2.RIGHT.rotated(speed_streaks.rotation) * 30.0
+	speed_streaks.position += speed_streaks.position * cos(speed_streaks.position.x / 30.0)
 
 	grounded = false
 	for groundcast in groundcasts:
@@ -138,9 +146,6 @@ func _draw():
 		if (is_right and not grabbing_R) or (not is_right and not grabbing_L):
 			var origin_pos: Vector2 = hand_R.position if is_right else hand_L.position
 			draw_line(origin_pos, ropecast.get_collision_point() - position, Color(1, 1, 1, 0.2))
-			
-	if breaking_speed:
-		draw_circle(Vector2.ZERO, 50.0, Color.RED)
 
 func _on_area_2d_body_entered(body):
 	pass
