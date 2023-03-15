@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://becahrjgy1o5x"]
+[gd_scene load_steps=25 format=3 uid="uid://becahrjgy1o5x"]
 
 [ext_resource type="Script" path="res://Characters/Player.gd" id="1_xhoo1"]
 [ext_resource type="Texture2D" uid="uid://csoroq68sa8tx" path="res://Assets/Sprites/body.png" id="2_q4mt7"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://7tc7fmbii67p" path="res://Assets/SFX/bfough.mp3" id="7_ulwaa"]
 [ext_resource type="AudioStream" uid="uid://bmfnswn1skjda" path="res://Assets/SFX/zzshcheeuww.mp3" id="8_4bmaq"]
 [ext_resource type="AudioStream" uid="uid://bipeic1qavgpw" path="res://Assets/SFX/zzcheuuffw.mp3" id="9_ndxko"]
+[ext_resource type="Texture2D" uid="uid://bead2yr68to6k" path="res://Assets/Sprites/speed_streaks.png" id="10_lpis6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xneih"]
 atlas = ExtResource("5_aj0qm")
@@ -88,6 +89,35 @@ animations = [{
 radius = 16.0
 height = 92.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl382"]
+atlas = ExtResource("10_lpis6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jigym"]
+atlas = ExtResource("10_lpis6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8on56"]
+atlas = ExtResource("10_lpis6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7r80r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl382")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jigym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8on56")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="RigidBody2D"]
 lock_rotation = true
 script = ExtResource("1_xhoo1")
@@ -133,7 +163,7 @@ position = Vector2(0, -15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_niif6")
 animation = &"airborne"
-frame_progress = 0.903981
+frame_progress = 0.247736
 speed_scale = 2.0
 
 [node name="Head" type="Node2D" parent="."]
@@ -203,7 +233,13 @@ target_position = Vector2(0, 18)
 collision_mask = 2
 
 [node name="BreakingSpeedTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
+
+[node name="SpeedStreaks" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.105882)
+position = Vector2(-39, -2)
+sprite_frames = SubResource("SpriteFrames_7r80r")
+speed_scale = 2.0
 
 [connection signal="timeout" from="Body/ExplodeMoveCooldown" to="." method="_on_explode_move_cooldown_timeout"]
 [connection signal="timeout" from="Grab_CD_L" to="." method="_on_grab_cd_l_timeout"]

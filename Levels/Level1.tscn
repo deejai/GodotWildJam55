@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dnir2h4qda2y0"]
 
-[ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="1_otnnw"]
+[ext_resource type="PackedScene" path="res://Construction/BuildingWall.tscn" id="1_otnnw"]
 [ext_resource type="PackedScene" uid="uid://calsd7i0glrcp" path="res://Construction/OneWayWall.tscn" id="2_oj111"]
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="2_w0tfr"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="3_ftwoi"]

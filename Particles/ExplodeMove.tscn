@@ -18,13 +18,13 @@ initial_velocity_max = 463.16
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 0.8
-scale_max = 0.8
+scale_max = 1.6
 color_ramp = SubResource("GradientTexture1D_5ek4o")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
-position = Vector2(548, 600)
 scale = Vector2(0.265625, 0.265625)
 emitting = false
+amount = 16
 process_material = SubResource("ParticleProcessMaterial_voif7")
 texture = ExtResource("1_wht58")
 lifetime = 0.25

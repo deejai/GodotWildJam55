@@ -18,6 +18,9 @@ var grounded: bool = false
 @onready var body_sprite: Sprite2D = $Body/Sprite2D
 @onready var legs_sprite: AnimatedSprite2D = $Legs/AnimatedSprite2D
 
+@onready var speed_streaks: AnimatedSprite2D = $SpeedStreaks
+const speed_streaks_base_dist: float = 30.0
+
 @onready var grab_cd_R: Timer = $Grab_CD_R
 @onready var grab_cd_L: Timer = $Grab_CD_L
 @onready var grapple_pin_R: Vector2
@@ -51,12 +54,22 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	legs_sprite.play()
+	speed_streaks.play()
 
 func _process(delta):
 	queue_redraw()
-	if linear_velocity.length() > 800.0:
+	if linear_velocity.length() > 1050.0:
 		breaking_speed = true
 		breaking_speed_timer.start()
+		speed_streaks.visible = true
+	else:
+		# let the breaking speed linger, but not the trail. it looks awkward for a split second
+		speed_streaks.visible = false
+
+	speed_streaks.rotation = (-linear_velocity).angle()
+	speed_streaks.position = Vector2.RIGHT.rotated(speed_streaks.rotation) * speed_streaks_base_dist
+	var y_mult = 1.0 + 1.5 * cos(speed_streaks.position.x * PI / speed_streaks_base_dist / 2.0)
+	speed_streaks.position *= y_mult
 
 	grounded = false
 	for groundcast in groundcasts:
@@ -138,9 +151,6 @@ func _draw():
 		if (is_right and not grabbing_R) or (not is_right and not grabbing_L):
 			var origin_pos: Vector2 = hand_R.position if is_right else hand_L.position
 			draw_line(origin_pos, ropecast.get_collision_point() - position, Color(1, 1, 1, 0.2))
-			
-	if breaking_speed:
-		draw_circle(Vector2.ZERO, 50.0, Color.RED)
 
 func _on_area_2d_body_entered(body):
 	pass
@@ -169,7 +179,12 @@ func shoot_rope(hand: Node2D):
 	else:
 		var dud = dudrope.instantiate()
 		dud.position = hand.global_position + Vector2.RIGHT.rotated(ropecast.rotation) * 5.0
-		dud.linear_velocity = Vector2.RIGHT.rotated(ropecast.rotation) * 100.0
+		dud.linear_velocity = Vector2.RIGHT.rotated(ropecast.rotation) * 500.0
+		
+		# if moving in same direction as shooting, boost horizontal speed
+		if linear_velocity.x * dud.position.x > 0.0:
+			dud.linear_velocity.x += linear_velocity.x
+
 		dud.rotation = ropecast.rotation
 		get_parent().add_child(dud)
 		rope_dud_player.play()

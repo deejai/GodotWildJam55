@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="WildJam55"
-run/main_scene="res://Demo.tscn"
+run/main_scene="res://Views/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Main="*res://Main.gd"
 
 [display]
 
