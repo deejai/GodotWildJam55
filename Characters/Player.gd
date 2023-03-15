@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Player
+
 const WALK_SPEED = 180.0
 const JUMP_VELOCITY = -400.0
 
@@ -41,6 +43,9 @@ var grabbing_R: bool = false
 var grabbing_L: bool = false
 var x_bonus_dir: Vector2
 
+@onready var breaking_speed_timer: Timer = $BreakingSpeedTimer
+var breaking_speed: bool = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -48,6 +53,11 @@ func _ready():
 	legs_sprite.play()
 
 func _process(delta):
+	queue_redraw()
+	if linear_velocity.length() > 800.0:
+		breaking_speed = true
+		breaking_speed_timer.start()
+
 	grounded = false
 	for groundcast in groundcasts:
 		if groundcast.is_colliding():
@@ -128,6 +138,9 @@ func _draw():
 		if (is_right and not grabbing_R) or (not is_right and not grabbing_L):
 			var origin_pos: Vector2 = hand_R.position if is_right else hand_L.position
 			draw_line(origin_pos, ropecast.get_collision_point() - position, Color(1, 1, 1, 0.2))
+			
+	if breaking_speed:
+		draw_circle(Vector2.ZERO, 50.0, Color.RED)
 
 func _on_area_2d_body_entered(body):
 	pass
@@ -160,3 +173,7 @@ func shoot_rope(hand: Node2D):
 		dud.rotation = ropecast.rotation
 		get_parent().add_child(dud)
 		rope_dud_player.play()
+
+
+func _on_breaking_speed_timer_timeout():
+	breaking_speed = false

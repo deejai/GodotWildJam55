@@ -133,7 +133,7 @@ position = Vector2(0, -15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_niif6")
 animation = &"airborne"
-frame_progress = 0.952708
+frame_progress = 0.903981
 speed_scale = 2.0
 
 [node name="Head" type="Node2D" parent="."]
@@ -202,6 +202,10 @@ position = Vector2(14, 46)
 target_position = Vector2(0, 18)
 collision_mask = 2
 
+[node name="BreakingSpeedTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="timeout" from="Body/ExplodeMoveCooldown" to="." method="_on_explode_move_cooldown_timeout"]
 [connection signal="timeout" from="Grab_CD_L" to="." method="_on_grab_cd_l_timeout"]
 [connection signal="timeout" from="Grab_CD_R" to="." method="_on_grab_cd_r_timeout"]
+[connection signal="timeout" from="BreakingSpeedTimer" to="." method="_on_breaking_speed_timer_timeout"]

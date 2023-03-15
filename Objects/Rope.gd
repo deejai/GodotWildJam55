@@ -37,6 +37,3 @@ func _process(delta):
 	timer -= delta
 	if timer < 0.0:
 		queue_free()
-
-func _draw():
-	draw_circle(dangle_body.position, 15.0, Color.RED)

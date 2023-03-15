@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dechlscjhxt8p"]
+[gd_scene load_steps=6 format=3 uid="uid://btguy24i1ecsr"]
 
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="1_83o3o"]
 [ext_resource type="Script" path="res://Levels/fillpolygon.gd" id="2_xmpea"]
