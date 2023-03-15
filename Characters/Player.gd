@@ -17,7 +17,9 @@ var grounded: bool = false
 @onready var head_sprite: Sprite2D = $Head/Sprite2D
 @onready var body_sprite: Sprite2D = $Body/Sprite2D
 @onready var legs_sprite: AnimatedSprite2D = $Legs/AnimatedSprite2D
+
 @onready var speed_streaks: AnimatedSprite2D = $SpeedStreaks
+const speed_streaks_base_dist: float = 30.0
 
 @onready var grab_cd_R: Timer = $Grab_CD_R
 @onready var grab_cd_L: Timer = $Grab_CD_L
@@ -59,12 +61,15 @@ func _process(delta):
 	if linear_velocity.length() > 1050.0:
 		breaking_speed = true
 		breaking_speed_timer.start()
-
-	speed_streaks.visible = breaking_speed
+		speed_streaks.visible = true
+	else:
+		# let the breaking speed linger, but not the trail. it looks awkward for a split second
+		speed_streaks.visible = false
 
 	speed_streaks.rotation = (-linear_velocity).angle()
-	speed_streaks.position = Vector2.RIGHT.rotated(speed_streaks.rotation) * 30.0
-	speed_streaks.position += speed_streaks.position * cos(speed_streaks.position.x / 30.0)
+	speed_streaks.position = Vector2.RIGHT.rotated(speed_streaks.rotation) * speed_streaks_base_dist
+	var y_mult = 1.0 + 1.5 * cos(speed_streaks.position.x * PI / speed_streaks_base_dist / 2.0)
+	speed_streaks.position *= y_mult
 
 	grounded = false
 	for groundcast in groundcasts:

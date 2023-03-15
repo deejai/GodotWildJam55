@@ -163,7 +163,7 @@ position = Vector2(0, -15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_niif6")
 animation = &"airborne"
-frame_progress = 0.0984468
+frame_progress = 0.247736
 speed_scale = 2.0
 
 [node name="Head" type="Node2D" parent="."]
@@ -233,7 +233,7 @@ target_position = Vector2(0, 18)
 collision_mask = 2
 
 [node name="BreakingSpeedTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 
 [node name="SpeedStreaks" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.105882)

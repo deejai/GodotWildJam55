@@ -14,7 +14,6 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	print("TEST")
 	if body is RigidBody2D:
 		if body.linear_velocity.length() > 250:
 			print(body.linear_velocity.length())

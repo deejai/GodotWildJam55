@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://lc30e02nlnlm"]
+
+[ext_resource type="Script" path="res://Views/MainMenu.gd" id="1_0d7l7"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_0d7l7")
+
+[node name="StartGameButton" type="Button" parent="."]
+offset_left = 552.0
+offset_top = 256.0
+offset_right = 796.0
+offset_bottom = 312.0
+text = "Enter Sandman"
+
+[node name="MuteAudioButton" type="Button" parent="."]
+offset_left = 1138.0
+offset_top = 14.0
+offset_right = 1260.0
+offset_bottom = 97.0
+text = "Mute Sound"
+
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MuteAudioButton" to="." method="_on_mute_audio_button_pressed"]
