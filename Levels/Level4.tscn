@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://sy8naeu3baou"]
+[gd_scene load_steps=13 format=3 uid="uid://sy8naeu3baou"]
 
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="1_tcrod"]
 [ext_resource type="Script" path="res://Objects/Grabbable.gd" id="2_xsaps"]
@@ -13,6 +13,9 @@ size = Vector2(2000, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0hbf"]
 size = Vector2(526, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajcmx"]
+size = Vector2(300, 21)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jyv6s"]
 scenes/1/scene = ExtResource("3_ighni")
@@ -50,12 +53,22 @@ script = ExtResource("2_xsaps")
 shape = SubResource("RectangleShape2D_w7a2n")
 
 [node name="Platform4" type="StaticBody2D" parent="Platforms"]
-position = Vector2(4593, 3101)
+position = Vector2(4944, 2920)
 collision_layer = 3
 script = ExtResource("2_xsaps")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform4"]
 shape = SubResource("RectangleShape2D_y0hbf")
+
+[node name="Platform5" type="StaticBody2D" parent="Platforms"]
+position = Vector2(4536, 2916)
+collision_layer = 3
+script = ExtResource("2_xsaps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform5"]
+position = Vector2(11, 65)
+rotation = -0.426045
+shape = SubResource("RectangleShape2D_ajcmx")
 
 [node name="Platform2" type="StaticBody2D" parent="Platforms"]
 position = Vector2(1001, 3742)

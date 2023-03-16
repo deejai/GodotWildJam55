@@ -192,3 +192,7 @@ func shoot_rope(hand: Node2D):
 
 func _on_breaking_speed_timer_timeout():
 	breaking_speed = false
+	
+func L_is_grabbing():
+	if grabbing_L: return true
+	else: return false

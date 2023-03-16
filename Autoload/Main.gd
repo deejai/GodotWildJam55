@@ -5,12 +5,20 @@ var story_text: String = ""
 
 var scenes: Dictionary = {
 	"main_menu": preload("res://Views/MainMenu.tscn"),
+	"hud": preload("res://Views/Hud.tscn"),
 	"story": preload("res://Views/StoryScreen.tscn"),
 	"boring": preload("res://Levels/Level1.tscn"),
 	"intro1": preload("res://Levels/Level2.tscn"),
 	"caves1": preload("res://Levels/Level3.tscn"),
 	"caves1_zoomed": preload("res://Levels/Level33.tscn"),
 	"wip": preload("res://Levels/Level4.tscn"),
+}
+
+var story: Dictionary = {
+	"intro": "IntroText",
+	"level1": "Level1Text",
+	"level2": "Level2Text",
+	"level3": "Level3Text",
 }
 
 # sequencer for how the game progresses. call Main.progress_to_next() from anywhere to continue the game or Main.retry() to retry a level
@@ -20,11 +28,12 @@ var scenes: Dictionary = {
 ## func(): transition_text = "Our hero lives to see another day..."; get_tree().change_scene_to_packed(scenes.transition),
 var progression_arr: Array = [
 	func(): get_tree().change_scene_to_packed(scenes.main_menu),
+	func(): get_tree().change_scene_to_packed(scenes.hud),
 	func(): get_tree().change_scene_to_packed(scenes.intro1),
-	func(): story_text ="Good Job!"; return true,
+	func(): story_text = story.intro; return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
 	func(): get_tree().change_scene_to_packed(scenes.caves1_zoomed),
-	func(): story_text ="Well Done!"; return true,
+	func(): story_text = story.level1; return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
 	func(): get_tree().change_scene_to_packed(scenes.wip)
 ]

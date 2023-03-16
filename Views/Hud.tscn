@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://oopn1kyoblx5"]
+
+[ext_resource type="Script" path="res://Views/RopeIndicator.gd" id="1_efvva"]
+[ext_resource type="Texture2D" uid="uid://b6t65csyf2gm1" path="res://Assets/Sprites/rope.jpg" id="2_4nmtd"]
+[ext_resource type="Texture2D" uid="uid://cfranglxffjes" path="res://Assets/Sprites/ropeno.jpg" id="3_1ngt8"]
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="RopeIndicator" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 590.0
+offset_top = 647.0
+offset_right = 630.0
+offset_bottom = 687.0
+script = ExtResource("1_efvva")
+
+[node name="Rope" type="Sprite2D" parent="RopeIndicator"]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_4nmtd")
+
+[node name="Ropeno" type="Sprite2D" parent="RopeIndicator"]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("3_1ngt8")
