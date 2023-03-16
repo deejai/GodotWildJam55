@@ -1,6 +1,5 @@
-extends Node2D
+extends StaticBody2D
 
-#func _Message
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_finish_line_body_entered(body):
-	var transition = preload("res://Menus/Transition.tscn")
-	var instance = transition.instantiate()
-	add_child(instance)
+func _on_door_button_body_entered(body):
+	queue_free()

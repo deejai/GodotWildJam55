@@ -1,15 +1,26 @@
 extends Node
 
 
-var transition_text: String = ""
+var story_text: String = ""
 
 var scenes: Dictionary = {
 	"main_menu": preload("res://Views/MainMenu.tscn"),
+	"hud": preload("res://Views/Hud.tscn"),
+	"story": preload("res://Views/StoryScreen.tscn"),
 	"boring": preload("res://Levels/Level1.tscn"),
 	"intro1": preload("res://Levels/Level2.tscn"),
 	"caves1": preload("res://Levels/Level3.tscn"),
 	"caves1_zoomed": preload("res://Levels/Level33.tscn"),
 	"wip": preload("res://Levels/Level4.tscn"),
+	"maze1": preload("res://Levels/Level5.tscn"),
+}
+
+var stories: Dictionary = {
+	"intro": "IntroText",
+	"level2": "Level2Text",
+	"level3": "Level3Text",
+	"level4": "Level4Text",
+	"ending": "YOU WIN!!!!",
 }
 
 # sequencer for how the game progresses. call Main.progress_to_next() from anywhere to continue the game or Main.retry() to retry a level
@@ -19,10 +30,21 @@ var scenes: Dictionary = {
 ## func(): transition_text = "Our hero lives to see another day..."; get_tree().change_scene_to_packed(scenes.transition),
 var progression_arr: Array = [
 	func(): get_tree().change_scene_to_packed(scenes.main_menu),
-	func(): print("test1"); return true,
-	func(): print("test2"); return true,
+	func(): get_tree().change_scene_to_packed(scenes.hud); return true,
+	func(): story_text = stories.intro; return true,
+	func(): get_tree().change_scene_to_packed(scenes.story),
 	func(): get_tree().change_scene_to_packed(scenes.intro1),
+	func(): story_text = stories.level2; return true,
+	func(): get_tree().change_scene_to_packed(scenes.story),
 	func(): get_tree().change_scene_to_packed(scenes.caves1_zoomed),
+	func(): story_text = stories.level3; return true,
+	func(): get_tree().change_scene_to_packed(scenes.story),
+	func(): get_tree().change_scene_to_packed(scenes.wip),
+	func(): story_text = stories.level4; return true,
+	func(): get_tree().change_scene_to_packed(scenes.story),
+	func(): get_tree().change_scene_to_packed(scenes.maze1),
+	func(): story_text = stories.ending; return true,
+	func(): get_tree().change_scene_to_packed(scenes.story),
 ]
 
 var progress_index: int = 0
