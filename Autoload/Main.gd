@@ -1,10 +1,11 @@
 extends Node
 
 
-var transition_text: String = ""
+var story_text: String = ""
 
 var scenes: Dictionary = {
 	"main_menu": preload("res://Views/MainMenu.tscn"),
+	"story": preload("res://Views/StoryScreen.tscn"),
 	"boring": preload("res://Levels/Level1.tscn"),
 	"intro1": preload("res://Levels/Level2.tscn"),
 	"caves1": preload("res://Levels/Level3.tscn"),
@@ -19,10 +20,13 @@ var scenes: Dictionary = {
 ## func(): transition_text = "Our hero lives to see another day..."; get_tree().change_scene_to_packed(scenes.transition),
 var progression_arr: Array = [
 	func(): get_tree().change_scene_to_packed(scenes.main_menu),
-	func(): print("test1"); return true,
-	func(): print("test2"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.intro1),
+	func(): story_text ="Good Job!"; return true,
+	func(): get_tree().change_scene_to_packed(scenes.story),
 	func(): get_tree().change_scene_to_packed(scenes.caves1_zoomed),
+	func(): story_text ="Well Done!"; return true,
+	func(): get_tree().change_scene_to_packed(scenes.story),
+	func(): get_tree().change_scene_to_packed(scenes.wip)
 ]
 
 var progress_index: int = 0
