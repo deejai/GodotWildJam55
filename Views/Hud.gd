@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var pause_menu: Node2D = $PauseMenu
 @onready var mute_button: Button = $PauseMenu/MuteButton
+@export var playervar: NodePath
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
