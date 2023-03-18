@@ -148,8 +148,6 @@ physics_material_override = SubResource("PhysicsMaterial_0tdil")
 script = ExtResource("5_v62br")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ceiling"]
-modulate = Color(0.227451, 0.47451, 0.392157, 1)
-self_modulate = Color(0.164706, 0.529412, 0.501961, 1)
 material = SubResource("CanvasItemMaterial_utu8q")
 build_mode = 1
 polygon = PackedVector2Array(158, -96, 0, 18, -1, -244, 833, -243, 1318, -244, 833, -241, 701, -90, 573, -187, 400, -11)
