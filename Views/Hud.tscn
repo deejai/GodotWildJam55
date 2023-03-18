@@ -1,27 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://oopn1kyoblx5"]
+[gd_scene load_steps=2 format=3 uid="uid://oopn1kyoblx5"]
 
 [ext_resource type="Script" path="res://Views/Hud.gd" id="1_8n84g"]
-[ext_resource type="Script" path="res://Views/RopeIndicator.gd" id="1_efvva"]
-[ext_resource type="Texture2D" uid="uid://b6t65csyf2gm1" path="res://Assets/Sprites/rope.jpg" id="2_4nmtd"]
-[ext_resource type="Texture2D" uid="uid://cfranglxffjes" path="res://Assets/Sprites/ropeno.jpg" id="3_1ngt8"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_8n84g")
-
-[node name="RopeIndicator" type="Node2D" parent="."]
-script = ExtResource("1_efvva")
-ropeno = ExtResource("3_1ngt8")
-ropeyes = ExtResource("2_4nmtd")
-
-[node name="RopeL" type="Sprite2D" parent="RopeIndicator"]
-position = Vector2(525, 646)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_4nmtd")
-
-[node name="RopeR" type="Sprite2D" parent="RopeIndicator"]
-position = Vector2(722, 645)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("3_1ngt8")
 
 [node name="PauseMenu" type="Node2D" parent="."]
 

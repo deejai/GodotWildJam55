@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://btguy24i1ecsr"]
+[gd_scene load_steps=10 format=3 uid="uid://btguy24i1ecsr"]
 
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="1_83o3o"]
+[ext_resource type="Script" path="res://Levels/Level3.gd" id="1_j71qk"]
 [ext_resource type="Script" path="res://Levels/fillpolygon.gd" id="2_xmpea"]
+[ext_resource type="Script" path="res://Levels/CavePlatform.gd" id="3_tt37j"]
 [ext_resource type="Script" path="res://Objects/Grabbable.gd" id="3_wpx5i"]
+[ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="5_svltg"]
+[ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="7_emchn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqgqc"]
 size = Vector2(2590, 20)
@@ -12,6 +16,7 @@ radius = 39.0
 height = 620.0
 
 [node name="Level3" type="Node2D"]
+script = ExtResource("1_j71qk")
 
 [node name="LevelBoundryLower" parent="." instance=ExtResource("1_83o3o")]
 position = Vector2(0, 9000)
@@ -100,7 +105,10 @@ rotation = 3.11192
 polygon = PackedVector2Array(-1371.09, -95.2949, -1073.66, 188.489, -1026.29, 423.881, -811.992, 752.941, -476.736, 997.4, -471.592, 1280.93, -688.028, 1792.63, -510.782, 2232.13, -229.417, 2671.34, -306.179, 3171.38, -557.665, 3771.58, -277.194, 4517.08, 38.9954, 4872.79, -263.106, 5794.03, -55.1812, 5866.54, 637.754, 5156.24, 561.438, 4456.06, 777.604, 4038.43, 548.906, 3453.46, 574.014, 2393.5, 965.451, 1885.74, 1353.58, 1561.01, 1460.03, 892.15, 1213.9, 382.46, 638.935, 82.0684, -8.71875, -6.40186)
 
 [node name="Platforms" type="Node2D" parent="."]
+z_index = -2
+z_as_relative = false
 position = Vector2(3783, 8080)
+script = ExtResource("3_tt37j")
 
 [node name="Floor1" type="StaticBody2D" parent="Platforms"]
 position = Vector2(644, 338)
@@ -614,3 +622,14 @@ script = ExtResource("3_wpx5i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform13"]
 rotation = -2.34398
 shape = SubResource("CapsuleShape2D_tf68s")
+
+[node name="Player" parent="." instance=ExtResource("5_svltg")]
+position = Vector2(4604, 8331)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+modulate = Color(1, 1, 1, 0.266667)
+z_index = -10
+texture_repeat = 2
+texture = ExtResource("7_emchn")
+texture_scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-528, -3418, -3115, 1510, -851, 10967, 18690, 11557, 21734, -2200, 6189, -6119)
