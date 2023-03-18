@@ -15,4 +15,4 @@ func _process(delta):
 func _on_body_entered(body):
 	if body is Player:
 		if body.apply_damage(damage):
-			body.apply_central_impulse(global_position.direction_to(body.global_position) * 250.0)
+			body.apply_central_impulse(global_position.direction_to(body.global_position) * 550.0)

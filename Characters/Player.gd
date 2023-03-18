@@ -216,6 +216,8 @@ func apply_damage(damage: int = 1):
 		modulate.a = 0.7
 		hurt_player.play()
 		invuln_timer.start()
+	
+	return true
 
 func _on_breaking_speed_timer_timeout():
 	breaking_speed = false
