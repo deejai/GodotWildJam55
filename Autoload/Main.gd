@@ -15,10 +15,10 @@ var scenes: Dictionary = {
 }
 
 var stories: Dictionary = {
-	"intro": "IntroText",
-	"level2": "Level2Text",
-	"level3": "Level3Text",
-	"level4": "Level4Text",
+	"intro": "As you swing through your hometown, memories blend with dreams, warping reality into something surreal. Keep your focus sharp; you could lose yourself in this strange new world.",
+	"level2": "The deep shadows of the cave seem to stretch on forever, teasing your subconscious half-formed visions. Your own half-conscious mind threatens to consume you.",
+	"level3": "You feel a sense of deja vu wash over you. It's as if you've been here before, in another life, in another dream. But there's no time for contemplation - you'll need to act fast to overcome.",
+	"level4": "LEVEL 4 TEXT",
 	"ending": "YOU WIN!!!!",
 }
 
