@@ -1,18 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://57dr0t5pgq7m"]
-
-[ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="1_kahtu"]
+[gd_scene load_steps=2 format=3 uid="uid://57dr0t5pgq7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul22m"]
 size = Vector2(32, 32)
 
 [node name="BuildingWall" type="StaticBody2D"]
 collision_layer = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("1_kahtu")
-region_enabled = true
-region_rect = Rect2(80, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ul22m")
