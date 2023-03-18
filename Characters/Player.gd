@@ -15,7 +15,7 @@ var grounded: bool = false
 @onready var legs: Node2D = $Legs
 
 @onready var head_sprite: Sprite2D = $Head/Sprite2D
-@onready var body_sprite: Sprite2D = $Body/Sprite2D
+@onready var body_sprite: AnimatedSprite2D = $Body/AnimatedSprite2D
 @onready var legs_sprite: AnimatedSprite2D = $Legs/AnimatedSprite2D
 
 @onready var speed_streaks: AnimatedSprite2D = $SpeedStreaks
@@ -52,11 +52,21 @@ var breaking_speed: bool = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var hp: int = 3
+var invuln: bool = false
+@onready var invuln_timer: Timer = $InvulnTimer
+@onready var hurt_player: AudioStreamPlayer2D = $HurtPlayer
+@onready var dead_player: AudioStreamPlayer2D = $DeadPlayer
+var dead: bool = false
+
 func _ready():
 	legs_sprite.play()
 	speed_streaks.play()
 
 func _process(delta):
+	if dead:
+		return
+
 	queue_redraw()
 	if linear_velocity.length() > 1050.0:
 		breaking_speed = true
@@ -189,10 +199,27 @@ func shoot_rope(hand: Node2D):
 		get_parent().add_child(dud)
 		rope_dud_player.play()
 
+func apply_damage(damage: int = 1):
+	if invuln or dead:
+		return false
+
+	hp -= damage
+	if hp <= 0:
+		dead = true
+		visible = false
+		set_deferred("freeze", true)
+		collision_layer = 0
+		collision_mask = 0
+		dead_player.play()
+	else:
+		invuln = true
+		modulate.a = 0.7
+		hurt_player.play()
+		invuln_timer.start()
 
 func _on_breaking_speed_timer_timeout():
 	breaking_speed = false
-	
-func L_is_grabbing():
-	if grabbing_L: return true
-	else: return false
+
+func _on_invuln_timer_timeout():
+	invuln = false
+	modulate.a = 1.0

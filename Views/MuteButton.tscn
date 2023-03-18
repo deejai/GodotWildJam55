@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cis7cyakvbo0i"]
+
+[node name="MuteButton" type="Node2D"]

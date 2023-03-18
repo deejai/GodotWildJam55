@@ -1,6 +1,5 @@
 extends Node
 
-
 var story_text: String = ""
 
 var scenes: Dictionary = {
@@ -28,6 +27,7 @@ var stories: Dictionary = {
 # return true to run one time setup and automatically go to the next function
 # example for transition:
 ## func(): transition_text = "Our hero lives to see another day..."; get_tree().change_scene_to_packed(scenes.transition),
+var progress_index: int = 0
 var progression_arr: Array = [
 	func(): get_tree().change_scene_to_packed(scenes.main_menu),
 	func(): get_tree().change_scene_to_packed(scenes.hud); return true,
@@ -47,7 +47,9 @@ var progression_arr: Array = [
 	func(): get_tree().change_scene_to_packed(scenes.story),
 ]
 
-var progress_index: int = 0
+func quit_to_main_menu():
+	get_tree().change_scene_to_packed(scenes.main_menu)
+	progress_index = 0
 
 func retry():
 	progression_arr[progress_index].call()

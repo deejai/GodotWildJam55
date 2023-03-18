@@ -1,7 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://becahrjgy1o5x"]
+[gd_scene load_steps=34 format=3 uid="uid://becahrjgy1o5x"]
 
 [ext_resource type="Script" path="res://Characters/Player.gd" id="1_xhoo1"]
-[ext_resource type="Texture2D" uid="uid://csoroq68sa8tx" path="res://Assets/Sprites/body.png" id="2_q4mt7"]
+[ext_resource type="Texture2D" uid="uid://cnvqfvmxkfag7" path="res://Assets/Sprites/body_damage_states.png" id="2_jsvyg"]
 [ext_resource type="Texture2D" uid="uid://biqaq6oaxo2a3" path="res://Assets/Sprites/hand.png" id="3_3hueq"]
 [ext_resource type="Texture2D" uid="uid://doiqf23vqaliv" path="res://Assets/Sprites/explode_move_arrow.png" id="3_ut7fm"]
 [ext_resource type="Texture2D" uid="uid://5u6v4y6ofotc" path="res://Assets/Sprites/legs_sheet.png" id="5_aj0qm"]
@@ -9,7 +9,40 @@
 [ext_resource type="AudioStream" uid="uid://7tc7fmbii67p" path="res://Assets/SFX/bfough.mp3" id="7_ulwaa"]
 [ext_resource type="AudioStream" uid="uid://bmfnswn1skjda" path="res://Assets/SFX/zzshcheeuww.mp3" id="8_4bmaq"]
 [ext_resource type="AudioStream" uid="uid://bipeic1qavgpw" path="res://Assets/SFX/zzcheuuffw.mp3" id="9_ndxko"]
+[ext_resource type="PackedScene" uid="uid://oopn1kyoblx5" path="res://Views/Hud.tscn" id="10_1dqnp"]
 [ext_resource type="Texture2D" uid="uid://bead2yr68to6k" path="res://Assets/Sprites/speed_streaks.png" id="10_lpis6"]
+[ext_resource type="AudioStream" uid="uid://bk60xenh3phrk" path="res://Assets/SFX/ooph.mp3" id="12_vypna"]
+[ext_resource type="AudioStream" uid="uid://b17qv5mkix88y" path="res://Assets/SFX/uuoof.mp3" id="13_wxx8x"]
+[ext_resource type="AudioStream" uid="uid://d3bnfe1cw604p" path="res://Assets/SFX/uououorgh.mp3" id="14_sfka2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5fjf"]
+atlas = ExtResource("2_jsvyg")
+region = Rect2(0, 0, 19, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t32n"]
+atlas = ExtResource("2_jsvyg")
+region = Rect2(19, 0, 19, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5ca7"]
+atlas = ExtResource("2_jsvyg")
+region = Rect2(38, 0, 19, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_756iv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5fjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t32n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5ca7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xneih"]
 atlas = ExtResource("5_aj0qm")
@@ -118,15 +151,23 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e37mo"]
+streams_count = 2
+playback_mode = 1
+stream_0/stream = ExtResource("12_vypna")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("13_wxx8x")
+stream_1/weight = 1.0
+
 [node name="Player" type="RigidBody2D"]
 lock_rotation = true
 script = ExtResource("1_xhoo1")
 
 [node name="Body" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Body"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(2, 2)
-texture = ExtResource("2_q4mt7")
+sprite_frames = SubResource("SpriteFrames_756iv")
 
 [node name="ExplodeMoveArrow" type="Sprite2D" parent="Body"]
 modulate = Color(1, 1, 1, 0.384314)
@@ -201,6 +242,8 @@ stream = ExtResource("9_ndxko")
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 
+[node name="Hud" parent="Camera2D" instance=ExtResource("10_1dqnp")]
+
 [node name="WalkImpulseCD" type="Timer" parent="."]
 wait_time = 0.35
 one_shot = true
@@ -241,7 +284,16 @@ position = Vector2(-39, -2)
 sprite_frames = SubResource("SpriteFrames_7r80r")
 speed_scale = 2.0
 
+[node name="InvulnTimer" type="Timer" parent="."]
+
+[node name="HurtPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_e37mo")
+
+[node name="DeadPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_sfka2")
+
 [connection signal="timeout" from="Body/ExplodeMoveCooldown" to="." method="_on_explode_move_cooldown_timeout"]
 [connection signal="timeout" from="Grab_CD_L" to="." method="_on_grab_cd_l_timeout"]
 [connection signal="timeout" from="Grab_CD_R" to="." method="_on_grab_cd_r_timeout"]
 [connection signal="timeout" from="BreakingSpeedTimer" to="." method="_on_breaking_speed_timer_timeout"]
+[connection signal="timeout" from="InvulnTimer" to="." method="_on_invuln_timer_timeout"]

@@ -9,8 +9,16 @@ func _process(delta):
 	pass
 
 func _on_mute_audio_button_pressed():
-	AudioServer.set_bus_mute(0, true)
-
+	if AudioServer.is_bus_mute(0):
+		AudioServer.set_bus_mute(0, false)
+		$MuteAudioButton.text = "Sound: On"
+	else:
+		AudioServer.set_bus_mute(0, true)
+		$MuteAudioButton.text = "Sound: Off"
 
 func _on_start_game_button_pressed():
 	Main.progress_to_next()
+
+
+func _on_quit_button_pressed():
+	get_tree().quit()

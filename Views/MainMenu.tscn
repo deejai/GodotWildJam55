@@ -1,23 +1,141 @@
-[gd_scene load_steps=2 format=3 uid="uid://lc30e02nlnlm"]
+[gd_scene load_steps=6 format=3 uid="uid://lc30e02nlnlm"]
 
 [ext_resource type="Script" path="res://Views/MainMenu.gd" id="1_0d7l7"]
+[ext_resource type="Texture2D" uid="uid://dg46etplbcls2" path="res://Assets/Sprites/head.png" id="2_nlo2i"]
+[ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="3_p2h3n"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dw4w1"]
+texture = ExtResource("3_p2h3n")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+7:1/0 = 0
+6:1/0 = 0
+6:0/0 = 0
+5:0/0 = 0
+4:0/0 = 0
+5:1/0 = 0
+7:0/0 = 0
+7:3/0 = 0
+7:4/0 = 0
+6:4/0 = 0
+5:4/0 = 0
+4:4/0 = 0
+3:4/0 = 0
+2:4/0 = 0
+1:4/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:2/0 = 0
+3:2/0 = 0
+7:5/0 = 0
+7:6/0 = 0
+7:7/0 = 0
+6:7/0 = 0
+5:7/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+6:5/0 = 0
+5:5/0 = 0
+4:5/0 = 0
+3:5/0 = 0
+2:5/0 = 0
+1:5/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+4:7/0 = 0
+3:7/0 = 0
+2:7/0 = 0
+1:7/0 = 0
+0:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gepc7"]
+sources/0 = SubResource("TileSetAtlasSource_dw4w1")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_0d7l7")
 
 [node name="StartGameButton" type="Button" parent="."]
-offset_left = 552.0
-offset_top = 256.0
-offset_right = 796.0
-offset_bottom = 312.0
+modulate = Color(1, 0.568627, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 606.0
+offset_top = 241.0
+offset_right = 823.0
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Enter Sandman"
 
 [node name="MuteAudioButton" type="Button" parent="."]
-offset_left = 1138.0
+offset_left = 1161.0
 offset_top = 14.0
 offset_right = 1260.0
-offset_bottom = 97.0
-text = "Mute Sound"
+offset_bottom = 58.0
+text = "Sound: On"
+
+[node name="QuitButton" type="Button" parent="."]
+modulate = Color(1, 0.341176, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 640.0
+offset_top = 322.0
+offset_right = 790.0
+offset_bottom = 362.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1279.0
+offset_bottom = 721.0
+color = Color(0.890196, 0.745098, 0.529412, 1)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = -3.0
+offset_top = 292.0
+offset_right = 425.0
+offset_bottom = 720.0
+texture = ExtResource("2_nlo2i")
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer"]
+scale = Vector2(8, 8)
+tile_set = SubResource("TileSet_gepc7")
+format = 2
+layer_0/tile_data = PackedInt32Array(196616, 196608, 0, 262152, 196608, 1, 327688, 196608, 2, 196617, 262144, 0, 262153, 262144, 1, 327689, 262144, 2, 262151, 327680, 1, 327687, 327680, 2)
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="MuteAudioButton" to="." method="_on_mute_audio_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
