@@ -10,7 +10,7 @@ var scenes: Dictionary = {
 	"intro1": preload("res://Levels/Level2.tscn"),
 	"caves1": preload("res://Levels/Level3.tscn"),
 	"caves1_zoomed": preload("res://Levels/Level33.tscn"),
-	"wip": preload("res://Levels/Level4.tscn"),
+	"building": preload("res://Levels/Level4.tscn"),
 	"maze1": preload("res://Levels/Level5.tscn"),
 }
 
@@ -39,7 +39,7 @@ var progression_arr: Array = [
 	func(): get_tree().change_scene_to_packed(scenes.caves1_zoomed),
 	func(): story_text = stories.level3; return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
-	func(): get_tree().change_scene_to_packed(scenes.wip),
+	func(): get_tree().change_scene_to_packed(scenes.building),
 	func(): story_text = stories.level4; return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
 	func(): get_tree().change_scene_to_packed(scenes.maze1),
