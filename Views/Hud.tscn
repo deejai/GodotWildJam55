@@ -8,20 +8,18 @@
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_8n84g")
 
-[node name="RopeIndicator" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 590.0
-offset_top = 647.0
-offset_right = 630.0
-offset_bottom = 687.0
+[node name="RopeIndicator" type="Node2D" parent="."]
 script = ExtResource("1_efvva")
+ropeno = ExtResource("3_1ngt8")
+ropeyes = ExtResource("2_4nmtd")
 
-[node name="Rope" type="Sprite2D" parent="RopeIndicator"]
+[node name="RopeL" type="Sprite2D" parent="RopeIndicator"]
+position = Vector2(525, 646)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("2_4nmtd")
 
-[node name="Ropeno" type="Sprite2D" parent="RopeIndicator"]
+[node name="RopeR" type="Sprite2D" parent="RopeIndicator"]
+position = Vector2(722, 645)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("3_1ngt8")
 

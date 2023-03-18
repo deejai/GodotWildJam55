@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnir2h4qda2y0"]
+[gd_scene load_steps=9 format=3 uid="uid://dnir2h4qda2y0"]
 
-[ext_resource type="PackedScene" path="res://Construction/BuildingWall.tscn" id="1_otnnw"]
+[ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="1_otnnw"]
 [ext_resource type="PackedScene" uid="uid://calsd7i0glrcp" path="res://Construction/OneWayWall.tscn" id="2_oj111"]
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="2_w0tfr"]
-[ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="3_ftwoi"]
 [ext_resource type="PackedScene" uid="uid://b3osqgv5ac57q" path="res://Construction/BreakableWall.tscn" id="3_vqamp"]
 [ext_resource type="PackedScene" uid="uid://th3peq7b48sv" path="res://Construction/Door.tscn" id="4_f5vg5"]
 [ext_resource type="PackedScene" uid="uid://ky2704eu3e34" path="res://Construction/GrabbableWall.tscn" id="5_r8qwe"]
@@ -30,6 +29,3 @@ layer_0/tile_data = PackedInt32Array(1245186, 0, 65536, 1179650, 0, 65536, 11141
 
 [node name="LevelBoundryLower" parent="." instance=ExtResource("2_w0tfr")]
 position = Vector2(496, 705)
-
-[node name="Player" parent="." instance=ExtResource("3_ftwoi")]
-position = Vector2(2967, -799)
