@@ -12,8 +12,9 @@ func _process(delta):
 	pass
 
 func _input(event:InputEvent):
-	if event is InputEventMouseButton:
-		$GoNextTimer.start()
+	if event is InputEventMouseButton and $GoNextTimer.is_stopped():
+		Main.progress_to_next()
+
 
 func _on_go_next_timer_timeout():
-	Main.progress_to_next()
+	$Polygon2D.visible = true

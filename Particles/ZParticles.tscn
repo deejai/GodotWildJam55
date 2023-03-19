@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://m4hlkw1026la"]
+
+[ext_resource type="Texture2D" uid="uid://c1pywc1qbeaut" path="res://Assets/Sprites/zparticle.png" id="1_fdoo5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a5fmp"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, -10, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.25
+
+[node name="ZParticles" type="GPUParticles2D"]
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_a5fmp")
+texture = ExtResource("1_fdoo5")
+lifetime = 2.5
