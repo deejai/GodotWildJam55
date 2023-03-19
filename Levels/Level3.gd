@@ -41,6 +41,7 @@ func _draw():
 			add_child(texture_poly)
 
 func _on_finish_line_body_entered(body):
-	var transition = preload("res://Menus/Transition.tscn")
-	var instance = transition.instantiate()
-	add_child(instance)
+	if body is Player:
+		var transition = preload("res://Menus/Transition.tscn")
+		var instance = transition.instantiate()
+		add_child(instance)

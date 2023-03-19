@@ -60,7 +60,10 @@ var invuln: bool = false
 @onready var invuln_timer: Timer = $InvulnTimer
 @onready var hurt_player: AudioStreamPlayer2D = $HurtPlayer
 @onready var dead_player: AudioStreamPlayer2D = $DeadPlayer
+@onready var death_pause_timer: Timer = $DeathPauseTimer
 var dead: bool = false
+
+@onready var hud: CanvasLayer = $Camera2D/Hud
 
 func _ready():
 	legs_sprite.play()
@@ -214,6 +217,7 @@ func apply_damage(damage: int = 1):
 		collision_layer = 0
 		collision_mask = 0
 		dead_player.play()
+		death_pause_timer.start()
 	else:
 		body_sprite.set_frame_and_progress(mini(2, 3 - hp), 0.0)
 		sand_pour_bot_left.emitting = hp < 3
@@ -231,3 +235,6 @@ func _on_breaking_speed_timer_timeout():
 func _on_invuln_timer_timeout():
 	invuln = false
 	modulate.a = 1.0
+
+func _on_death_pause_timeout():
+	hud.set_pause(true)

@@ -16,8 +16,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("cancel_or_pause"):
-		pause_menu.visible = !pause_menu.visible
-		get_tree().paused = pause_menu.visible
+		toggle_pause()
 
 func _on_restart_button_pressed():
 	get_tree().paused = false
@@ -35,3 +34,11 @@ func _on_mute_button_pressed():
 	else:
 		AudioServer.set_bus_mute(0, true)
 		mute_button.text = "Sound: Off"
+
+func toggle_pause():
+	pause_menu.visible = !pause_menu.visible
+	get_tree().paused = pause_menu.visible
+
+func set_pause(val: bool):
+	pause_menu.visible = val
+	get_tree().paused = val

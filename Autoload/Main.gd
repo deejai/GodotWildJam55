@@ -28,27 +28,37 @@ var stories: Dictionary = {
 ## func(): transition_text = "Our hero lives to see another day..."; get_tree().change_scene_to_packed(scenes.transition),
 var progress_index: int = 0
 var progression_arr: Array = [
+	func(): Music.set_track("menu"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.main_menu),
 	func(): get_tree().change_scene_to_packed(scenes.hud); return true,
 	func(): story_text = stories.intro; return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
+	func(): Music.set_track("level1"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.intro1),
 	func(): story_text = stories.level2; return true,
+	func(): Music.set_track("menu"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
+	func(): Music.set_track("level2"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.caves1),
 	func(): story_text = stories.level3; return true,
+	func(): Music.set_track("menu"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
+	func(): Music.set_track("level3"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.building),
 	func(): story_text = stories.level4; return true,
+	func(): Music.set_track("menu"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
+	func(): Music.set_track("level4"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.maze1),
 	func(): story_text = stories.ending; return true,
+	func(): Music.set_track("menu"); return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
 ]
 
 func quit_to_main_menu():
 	get_tree().change_scene_to_packed(scenes.main_menu)
-	progress_index = 0
+	progress_index = -1
+	increment_progress()
 
 func retry():
 	progression_arr[progress_index].call()

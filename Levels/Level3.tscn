@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://drupq1nqug85t"]
+[gd_scene load_steps=9 format=3 uid="uid://drupq1nqug85t"]
 
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="1_83o3o"]
 [ext_resource type="Script" path="res://Levels/Level3.gd" id="1_j71qk"]
@@ -6,18 +6,13 @@
 [ext_resource type="Script" path="res://Levels/RockPoly.gd" id="3_y2k2a"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="6_w5be3"]
 [ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="7_emchn"]
-[ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="8_mu1v2"]
-[ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="9_68uyo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tf68s"]
 radius = 39.0
 height = 620.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qsnj"]
-size = Vector2(375, 20)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_7laq0"]
-b = Vector2(0, 700)
+size = Vector2(585, 84.0005)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_j71qk")
@@ -37,6 +32,13 @@ position = Vector2(102, 2326)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall1"]
 polygon = PackedVector2Array(282, -49, 562, -125, 898, -91, 1164, -196, 1298, -370, 1276, -674, 1019, -588, 677, -902, 106, -1188, -332, -1169, -284, -84)
+script = ExtResource("3_y2k2a")
+
+[node name="DeathWall11" type="StaticBody2D" parent="DeathWalls"]
+position = Vector2(214, 3710)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall11"]
+polygon = PackedVector2Array(-187, 288, 1389, 524, 3465, 8, 3757, -588, 2377, -684, 1019, -588, 305, -640, -399, -1456, -443, -2392, -1371, -1996, -947, -176)
 script = ExtResource("3_y2k2a")
 
 [node name="DeathWall10" type="StaticBody2D" parent="DeathWalls"]
@@ -644,15 +646,8 @@ position = Vector2(2761, 2732)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish line"]
-position = Vector2(6, 15)
+position = Vector2(9.50024, 47.0007)
 shape = SubResource("RectangleShape2D_5qsnj")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(3808, 7665)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-76, 7)
-shape = SubResource("SegmentShape2D_7laq0")
 
 [node name="Player" parent="." instance=ExtResource("6_w5be3")]
 position = Vector2(4547, 8268)

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Main="*res://Autoload/Main.gd"
 Shared="*res://Autoload/Shared.gd"
+Music="*res://Autoload/Music.gd"
 
 [display]
 

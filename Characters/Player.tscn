@@ -306,8 +306,11 @@ stream = SubResource("AudioStreamRandomizer_e37mo")
 [node name="DeadPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_sfka2")
 
+[node name="DeathPauseTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Body/ExplodeMoveCooldown" to="." method="_on_explode_move_cooldown_timeout"]
 [connection signal="timeout" from="Grab_CD_L" to="." method="_on_grab_cd_l_timeout"]
 [connection signal="timeout" from="Grab_CD_R" to="." method="_on_grab_cd_r_timeout"]
 [connection signal="timeout" from="BreakingSpeedTimer" to="." method="_on_breaking_speed_timer_timeout"]
 [connection signal="timeout" from="InvulnTimer" to="." method="_on_invuln_timer_timeout"]
+[connection signal="timeout" from="DeathPauseTimer" to="." method="_on_death_pause_timeout"]
