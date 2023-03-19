@@ -16,3 +16,4 @@ func _on_finish_line_body_entered(body):
 	var transition = preload("res://Menus/Transition.tscn")
 	var instance = transition.instantiate()
 	add_child(instance)
+	print("hello world")

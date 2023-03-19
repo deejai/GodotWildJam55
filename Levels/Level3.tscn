@@ -6,9 +6,8 @@
 [ext_resource type="Script" path="res://Levels/RockPoly.gd" id="3_y2k2a"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="6_w5be3"]
 [ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="7_emchn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqgqc"]
-size = Vector2(2590, 20)
+[ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="8_mu1v2"]
+[ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="9_68uyo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tf68s"]
 radius = 39.0
@@ -116,15 +115,6 @@ script = ExtResource("3_y2k2a")
 z_index = -2
 z_as_relative = false
 position = Vector2(3783, 8080)
-
-[node name="Floor1" type="StaticBody2D" parent="Platforms"]
-position = Vector2(644, 338)
-collision_layer = 3
-script = ExtResource("3_wpx5i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Floor1"]
-position = Vector2(545, 0)
-shape = SubResource("RectangleShape2D_eqgqc")
 
 [node name="Platform1" type="StaticBody2D" parent="Platforms"]
 position = Vector2(542, -240)
@@ -573,12 +563,22 @@ rotation = -2.34398
 shape = SubResource("CapsuleShape2D_tf68s")
 
 [node name="Platform10" type="StaticBody2D" parent="Platforms"]
-position = Vector2(58, -2049)
-rotation = 0.958186
+position = Vector2(7179, -4276)
+rotation = 0.78053
 collision_layer = 0
 script = ExtResource("3_wpx5i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform10"]
+rotation = -2.34398
+shape = SubResource("CapsuleShape2D_tf68s")
+
+[node name="Platform53" type="StaticBody2D" parent="Platforms"]
+position = Vector2(6416, -4078)
+rotation = 1.19613
+collision_layer = 0
+script = ExtResource("3_wpx5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform53"]
 rotation = -2.34398
 shape = SubResource("CapsuleShape2D_tf68s")
 
