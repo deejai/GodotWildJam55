@@ -29,6 +29,7 @@ position = Vector2(3687, 5383)
 
 [node name="DeathWall1" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(102, 2326)
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall1"]
 polygon = PackedVector2Array(282, -49, 562, -125, 898, -91, 1164, -196, 1298, -370, 1276, -674, 1019, -588, 677, -902, 106, -1188, -332, -1169, -287, -72)
@@ -36,6 +37,7 @@ script = ExtResource("3_y2k2a")
 
 [node name="DeathWall11" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(214, 3710)
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall11"]
 polygon = PackedVector2Array(-187, 288, 1389, 524, 3465, 8, 3757, -588, 2377, -684, 1019, -588, 305, -640, -399, -1456, -437, -2394, -1371, -1996, -947, -176)
@@ -44,6 +46,7 @@ script = ExtResource("3_y2k2a")
 [node name="DeathWall10" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(-180, 995)
 rotation = -1.93146
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall10"]
 polygon = PackedVector2Array(282, -49, 562, -125, 898, -91, 1164, -196, 1298, -370, 1276, -674, 1019, -588, 677, -902, 106, -1188, -332, -1169, -284, -84)
@@ -52,6 +55,7 @@ script = ExtResource("3_y2k2a")
 [node name="DeathWall7" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(8371, -1589)
 rotation = 1.48157
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall7"]
 polygon = PackedVector2Array(282, -49, 562, -125, 898, -91, 1164, -196, 1298, -370, 1276, -674, 1019, -588, 677, -902, 106, -1188, -332, -1169, -284, -84)
@@ -59,6 +63,7 @@ script = ExtResource("3_y2k2a")
 
 [node name="DeathWall2" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(2560, 3034)
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall2"]
 polygon = PackedVector2Array(4, -9, 216, -230, 21, -645, 276, -963, 644, -1048, 670, -1387, 267, -1594, 216, -1946, -178, -2120, -191, -2433, -254, -2700, -712, -2747, -1025, -2976, -1169, -3301, -674, -3356, -29, -3101, 585, -3377, 776, -3305, 992, -3415, 1450, -3245, 1403, 85)
@@ -66,6 +71,7 @@ script = ExtResource("3_y2k2a")
 
 [node name="DeathWall3" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(9072, -1558)
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall3"]
 polygon = PackedVector2Array(4, -9, 216, -230, 21, -645, 276, -963, 644, -1048, 670, -1387, 267, -1594, 216, -1946, -178, -2120, -191, -2433, -254, -2700, -712, -2747, -1025, -2976, -1169, -3301, -674, -3356, -29, -3101, 585, -3377, 776, -3305, 992, -3415, 1450, -3245, 1403, 85)
@@ -74,6 +80,7 @@ script = ExtResource("3_y2k2a")
 [node name="DeathWall4" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(2364, -1037)
 rotation = 4.66701
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall4"]
 polygon = PackedVector2Array(4, -9, 216, -230, 21, -645, 276, -963, 644, -1048, 670, -1387, 267, -1594, 216, -1946, -178, -2120, -191, -2433, -254, -2700, -712, -2747, -1025, -2976, -1169, -3301, -674, -3356, -29, -3101, 585, -3377, 776, -3305, 992, -3415, 1450, -3245, 1403, 85)
@@ -82,6 +89,7 @@ script = ExtResource("3_y2k2a")
 [node name="DeathWall9" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(2022, -4686)
 rotation = 4.52658
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall9"]
 polygon = PackedVector2Array(4, -9, 216, -230, 21, -645, 276, -963, 644, -1048, 670, -1387, 267, -1594, 216, -1946, -178, -2120, -191, -2433, -254, -2700, -712, -2747, -1025, -2976, -1169, -3301, -674, -3356, -29, -3101, 585, -3377, 776, -3305, 992, -3415, 1450, -3245, 1403, 85)
@@ -90,6 +98,7 @@ script = ExtResource("3_y2k2a")
 [node name="DeathWall5" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(2381, -2427)
 rotation = 4.66701
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall5"]
 polygon = PackedVector2Array(-1371.09, -95.2949, -1073.66, 188.489, -1026.29, 423.881, -811.992, 752.941, -476.736, 997.4, -471.592, 1280.93, -688.028, 1792.63, -510.782, 2232.13, -229.417, 2671.34, -306.179, 3171.38, -557.665, 3771.58, -277.194, 4517.08, 38.9954, 4872.79, -263.106, 5794.03, -55.1812, 5866.54, 637.754, 5156.24, 561.438, 4456.06, 777.604, 4038.43, 548.906, 3453.46, 574.014, 2393.5, 965.451, 1885.74, 1353.58, 1561.01, 1460.03, 892.15, 1213.9, 382.46, 638.935, 82.0684, -8.71875, -6.40186)
@@ -98,6 +107,7 @@ script = ExtResource("3_y2k2a")
 [node name="DeathWall6" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(8514, -531)
 rotation = 4.62815
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall6"]
 rotation = 3.11192
@@ -107,6 +117,7 @@ script = ExtResource("3_y2k2a")
 [node name="DeathWall8" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(2264, -6054)
 rotation = 1.77691
+collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall8"]
 rotation = 3.11192
