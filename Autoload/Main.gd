@@ -22,8 +22,8 @@ var stories: Dictionary = {
 	Hint: Each of your hands can grapple to a surface independently. Make sure to alternate hands to optimize movement. Right click to put enemies to sleep",
 	"level3": "You feel a sense of deja vu wash over you. It's as if you've been here before, in another life, in another dream. But there's no time for contemplation - you'll need to act fast to overcome.
 	
-	Hint: Use Space Bar to gain enough speed to break through glass panes.",
-	"level4": "LEVEL 4 TEXT",
+	Hint: Use Space Bar to gain enough speed to break through glass panes. You can use Right Click to flip switches from a distance.",
+	"level4": "LEVEL 4 TEXT.",
 	"ending": "YOU WIN!!!!",
 }
 
