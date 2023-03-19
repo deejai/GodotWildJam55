@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://drupq1nqug85t"]
+[gd_scene load_steps=10 format=3 uid="uid://drupq1nqug85t"]
 
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="1_83o3o"]
 [ext_resource type="Script" path="res://Levels/Level3.gd" id="1_j71qk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Levels/RockPoly.gd" id="3_y2k2a"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="6_w5be3"]
 [ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="7_emchn"]
+[ext_resource type="PackedScene" uid="uid://cmcltfkgu2jql" path="res://Levels/FlyingMonster.tscn" id="7_srgkc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tf68s"]
 radius = 39.0
@@ -662,5 +663,37 @@ shape = SubResource("RectangleShape2D_5qsnj")
 
 [node name="Player" parent="." instance=ExtResource("6_w5be3")]
 position = Vector2(4547, 8268)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="FlyingEnemyPlatform" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(5240, 7092)
+
+[node name="FlyingEnemyPlatform2" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(3672, 5900)
+
+[node name="FlyingEnemyPlatform3" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(4232, 4520)
+
+[node name="FlyingEnemyPlatform4" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(7100, 3972)
+
+[node name="FlyingEnemyPlatform5" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(8944, 4536)
+
+[node name="FlyingEnemyPlatform6" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(10428, 3408)
+
+[node name="FlyingEnemyPlatform7" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(11800, 2264)
+
+[node name="FlyingEnemyPlatform8" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(10260, 1764)
+
+[node name="FlyingEnemyPlatform9" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(8248, 688)
+
+[node name="FlyingEnemyPlatform10" parent="Enemies" instance=ExtResource("7_srgkc")]
+position = Vector2(5600, 1280)
 
 [connection signal="body_entered" from="Finish line" to="." method="_on_finish_line_body_entered"]
