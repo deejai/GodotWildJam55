@@ -16,7 +16,7 @@ var initialized: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,7 +29,7 @@ func set_track(name: String):
 
 	if not track_dict.has(name):
 		printerr(str("Could not find track: ", name))
-	
+
 	if name == current_track:
 		return
 
