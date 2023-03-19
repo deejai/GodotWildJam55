@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsmc4twm62o3e"]
+
+[ext_resource type="Script" path="res://Views/HowTo.gd" id="1_n1tek"]
+[ext_resource type="Texture2D" uid="uid://dhn5wqrurfob7" path="res://Assets/Sprites/hints.png" id="2_ndhyo"]
+
+[node name="HowTo" type="CanvasLayer"]
+layer = 6
+script = ExtResource("1_n1tek")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 46.0
+offset_right = 646.0
+offset_bottom = 617.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Left click to swing
+Each hand has a rope cooldown
+
+Right click to shoot sand.
+It puts enemies to sleep and makes them harmless
+
+Press space to explode move in the direction of
+ your mouse"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 578.0
+offset_top = -2.0
+offset_right = 1298.0
+offset_bottom = 718.0
+texture = ExtResource("2_ndhyo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -6
+offset_right = 1307.0
+offset_bottom = 725.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 85.0
+offset_top = 476.0
+offset_right = 472.0
+offset_bottom = 617.0
+theme_override_font_sizes/font_size = 40
+text = "Go Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

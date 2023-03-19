@@ -107,9 +107,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 640.0
-offset_top = 322.0
+offset_top = 393.0
 offset_right = 790.0
-offset_bottom = 362.0
+offset_bottom = 433.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Quit"
@@ -136,6 +136,14 @@ tile_set = SubResource("TileSet_gepc7")
 format = 2
 layer_0/tile_data = PackedInt32Array(196616, 196608, 0, 262152, 196608, 1, 327688, 196608, 2, 196617, 262144, 0, 262153, 262144, 1, 327689, 262144, 2, 262151, 327680, 1, 327687, 327680, 2)
 
+[node name="HowToPlayButton" type="Button" parent="."]
+offset_left = 607.0
+offset_top = 310.0
+offset_right = 825.0
+offset_bottom = 371.0
+text = "How To Play"
+
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="MuteAudioButton" to="." method="_on_mute_audio_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
