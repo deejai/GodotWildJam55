@@ -36,6 +36,10 @@ func _on_body_entered(body):
 
 	if body is Enemy:
 		hit_player.play()
+		body.sleeping = true
+		body.modulate.r = 1.1
+		body.modulate.b = 1.1
+		body.modulate.g = 0.8
 	else:
 		dud_player.play()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d0aj1nxhordxp"]
+[gd_scene load_steps=31 format=3 uid="uid://d0aj1nxhordxp"]
 
 [ext_resource type="PackedScene" uid="uid://qc0kim7mlt5b" path="res://Construction/DirtGround.tscn" id="1_8fevv"]
 [ext_resource type="Script" path="res://Levels/Level2.gd" id="1_f7c8k"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Levels/RockPoly.gd" id="11_7jk63"]
 [ext_resource type="Texture2D" uid="uid://dr3jx7u2sk3a3" path="res://Assets/Sprites/EnemyFloater.png" id="13_8kc6y"]
 [ext_resource type="Script" path="res://Levels/Key.gd" id="14_8txkb"]
+[ext_resource type="Script" path="res://Construction/SimpleHazardArea.gd" id="14_mqa7r"]
 [ext_resource type="Texture2D" uid="uid://55tx14k6qu1c" path="res://Assets/Sprites/Key2.png" id="15_30ke2"]
 [ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="16_wd4pb"]
 
@@ -37,6 +38,9 @@ rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqejm"]
 size = Vector2(68, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f80yf"]
+size = Vector2(87, 147)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dar61"]
 radius = 28.0713
@@ -170,6 +174,13 @@ position = Vector2(-16, -1)
 
 [node name="RightBound" type="Node2D" parent="FlyingEnemyPlatform"]
 position = Vector2(836, 2)
+
+[node name="Area2D" type="Area2D" parent="FlyingEnemyPlatform"]
+script = ExtResource("14_mqa7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyingEnemyPlatform/Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_f80yf")
 
 [node name="Key" type="Area2D" parent="."]
 position = Vector2(2761, 274)
