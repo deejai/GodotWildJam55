@@ -31,14 +31,14 @@ position = Vector2(3687, 5383)
 position = Vector2(102, 2326)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall1"]
-polygon = PackedVector2Array(282, -49, 562, -125, 898, -91, 1164, -196, 1298, -370, 1276, -674, 1019, -588, 677, -902, 106, -1188, -332, -1169, -284, -84)
+polygon = PackedVector2Array(282, -49, 562, -125, 898, -91, 1164, -196, 1298, -370, 1276, -674, 1019, -588, 677, -902, 106, -1188, -332, -1169, -287, -72)
 script = ExtResource("3_y2k2a")
 
 [node name="DeathWall11" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(214, 3710)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall11"]
-polygon = PackedVector2Array(-187, 288, 1389, 524, 3465, 8, 3757, -588, 2377, -684, 1019, -588, 305, -640, -399, -1456, -443, -2392, -1371, -1996, -947, -176)
+polygon = PackedVector2Array(-187, 288, 1389, 524, 3465, 8, 3757, -588, 2377, -684, 1019, -588, 305, -640, -399, -1456, -437, -2394, -1371, -1996, -947, -176)
 script = ExtResource("3_y2k2a")
 
 [node name="DeathWall10" type="StaticBody2D" parent="DeathWalls"]

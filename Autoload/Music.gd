@@ -24,6 +24,7 @@ func _process(delta):
 
 func set_track(name: String):
 	if not initialized:
+		player.volume_db = -6
 		add_child(player)
 		initialized = true
 
