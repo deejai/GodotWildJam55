@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d0aj1nxhordxp"]
+[gd_scene load_steps=29 format=3 uid="uid://d0aj1nxhordxp"]
 
 [ext_resource type="PackedScene" uid="uid://qc0kim7mlt5b" path="res://Construction/DirtGround.tscn" id="1_8fevv"]
 [ext_resource type="Script" path="res://Levels/Level2.gd" id="1_f7c8k"]

@@ -149,6 +149,16 @@ rotation = 1.72439
 shape = SubResource("CapsuleShape2D_tf68s")
 one_way_collision_margin = 42.5
 
+[node name="Platform55" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1773, -271)
+collision_layer = 0
+script = ExtResource("3_wpx5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform55"]
+rotation = 1.72439
+shape = SubResource("CapsuleShape2D_tf68s")
+one_way_collision_margin = 42.5
+
 [node name="Platform3" type="StaticBody2D" parent="Platforms"]
 position = Vector2(2423, -386)
 collision_layer = 0
@@ -514,11 +524,20 @@ rotation = 2.32303
 shape = SubResource("CapsuleShape2D_tf68s")
 
 [node name="Platform7" type="StaticBody2D" parent="Platforms"]
-position = Vector2(675, -1953)
+position = Vector2(231, -2126)
 collision_layer = 0
 script = ExtResource("3_wpx5i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform7"]
+rotation = -1.5015
+shape = SubResource("CapsuleShape2D_tf68s")
+
+[node name="Platform54" type="StaticBody2D" parent="Platforms"]
+position = Vector2(675, -1953)
+collision_layer = 0
+script = ExtResource("3_wpx5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform54"]
 rotation = -2.34398
 shape = SubResource("CapsuleShape2D_tf68s")
 

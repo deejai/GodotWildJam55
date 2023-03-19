@@ -14,17 +14,18 @@ var scenes: Dictionary = {
 }
 
 var stories: Dictionary = {
-	"intro": "As you swing through your hometown, memories blend with dreams, warping reality into something surreal. Keep your focus sharp; you could lose yourself in this strange new world. 
+	"intro": "You are The Sandman. You can use your sand powers to travel around and put foes to sleep. 
+ 
 	
 	Hint: Press Space Bar to propel your player towards your curser. A linear indicator appears when one of your hands can attach to a surface",
-	"level2": "The deep shadows of the cave seem to stretch on forever, teasing your subconscious half-formed visions. Your own half-conscious mind threatens to consume you.
+	"level2": "I don't like sand. It's coarse and rough and irritating and it gets everywhere. Not like here. Here everything is soft and smooth.
 	
 	Hint: Each of your hands can grapple to a surface independently. Make sure to alternate hands to optimize movement. Right click to put enemies to sleep",
-	"level3": "You feel a sense of deja vu wash over you. It's as if you've been here before, in another life, in another dream. But there's no time for contemplation - you'll need to act fast to overcome.
+	"level3": "Is this the right Sandman? Seems more like the Marvel one...
 	
-	Hint: Use Space Bar to gain enough speed to break through glass panes. You can use Right Click to flip switches from a distance.",
-	"level4": "LEVEL 4 TEXT.",
-	"ending": "YOU WIN!!!!",
+	Hint: Use Space Bar to gain enough speed to break through glass panes. You can walk into switches to flip them.",
+	"level4": "Your final Sand challenge awaits...",
+	"ending": "At last your Sand journey is complete. And it is you now who gets to sleep.",
 }
 
 # sequencer for how the game progresses. call Main.progress_to_next() from anywhere to continue the game or Main.retry() to retry a level

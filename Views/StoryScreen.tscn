@@ -15,8 +15,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -194.0
-offset_bottom = -42.0
+offset_left = 48.0
+offset_top = -267.0
+offset_right = -48.0
+offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 25
@@ -26,7 +28,7 @@ Example Transition Text
 Example Transition Text"
 label_settings = SubResource("LabelSettings_0m8qu")
 horizontal_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="GoNextTimer" type="Timer" parent="."]
 one_shot = true
