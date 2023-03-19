@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="1_c73su"]
 [ext_resource type="Script" path="res://Levels/Level5.gd" id="1_tv3wa"]
 [ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="2_ndy45"]
-[ext_resource type="PackedScene" uid="uid://ky2704eu3e34" path="res://Construction/GrabbableWall.tscn" id="3_15a77"]
+[ext_resource type="PackedScene" uid="uid://b456we2kkyqch" path="res://Construction/GrabbableWall.tscn" id="3_15a77"]
 [ext_resource type="PackedScene" uid="uid://b5pkhpmd5gb5p" path="res://Construction/Fire.tscn" id="4_08wpp"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="6_11cgt"]
 

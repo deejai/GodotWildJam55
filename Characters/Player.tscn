@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://becahrjgy1o5x"]
+[gd_scene load_steps=35 format=3 uid="uid://becahrjgy1o5x"]
 
 [ext_resource type="Script" path="res://Characters/Player.gd" id="1_xhoo1"]
 [ext_resource type="Texture2D" uid="uid://cnvqfvmxkfag7" path="res://Assets/Sprites/body_damage_states.png" id="2_jsvyg"]
 [ext_resource type="Texture2D" uid="uid://biqaq6oaxo2a3" path="res://Assets/Sprites/hand.png" id="3_3hueq"]
 [ext_resource type="Texture2D" uid="uid://doiqf23vqaliv" path="res://Assets/Sprites/explode_move_arrow.png" id="3_ut7fm"]
+[ext_resource type="PackedScene" uid="uid://cpaxt6wnkmim5" path="res://Particles/SandPour.tscn" id="4_8c6ku"]
 [ext_resource type="Texture2D" uid="uid://5u6v4y6ofotc" path="res://Assets/Sprites/legs_sheet.png" id="5_aj0qm"]
 [ext_resource type="Texture2D" uid="uid://dg46etplbcls2" path="res://Assets/Sprites/head.png" id="6_gpyie"]
 [ext_resource type="AudioStream" uid="uid://7tc7fmbii67p" path="res://Assets/SFX/bfough.mp3" id="7_ulwaa"]
@@ -182,6 +183,16 @@ one_shot = true
 
 [node name="ExplodeMoveFullSpeed" type="Timer" parent="Body"]
 
+[node name="SandPourBotLeft" parent="Body" instance=ExtResource("4_8c6ku")]
+position = Vector2(-5, 7)
+rotation = 1.25545
+emitting = false
+
+[node name="SandPourTopRight" parent="Body" instance=ExtResource("4_8c6ku")]
+position = Vector2(8, -6)
+rotation = -2.2071
+emitting = false
+
 [node name="Hand_R" type="Node2D" parent="."]
 z_index = 10
 position = Vector2(26, 3)
@@ -205,8 +216,7 @@ position = Vector2(0, 42)
 position = Vector2(0, -15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_niif6")
-animation = &"airborne"
-frame_progress = 0.247736
+animation = &"walk"
 speed_scale = 2.0
 
 [node name="Head" type="Node2D" parent="."]

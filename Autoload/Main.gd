@@ -3,15 +3,14 @@ extends Node
 var story_text: String = ""
 
 var scenes: Dictionary = {
-	"main_menu": preload("res://Views/MainMenu.tscn"),
-	"hud": preload("res://Views/Hud.tscn"),
-	"story": preload("res://Views/StoryScreen.tscn"),
-	"boring": preload("res://Levels/Level1.tscn"),
-	"intro1": preload("res://Levels/Level2.tscn"),
-	"caves1": preload("res://Levels/Level3.tscn"),
-	"caves1_zoomed": preload("res://Levels/Level33.tscn"),
-	"building": preload("res://Levels/Level4.tscn"),
-	"maze1": preload("res://Levels/Level5.tscn"),
+	"main_menu": load("res://Views/MainMenu.tscn"),
+	"hud": load("res://Views/Hud.tscn"),
+	"story": load("res://Views/StoryScreen.tscn"),
+	"boring": load("res://Levels/Level1.tscn"),
+	"intro1": load("res://Levels/Level2.tscn"),
+	"caves1": load("res://Levels/Level3.tscn"),
+	"building": load("res://Levels/Level4.tscn"),
+	"maze1": load("res://Levels/Level5.tscn"),
 }
 
 var stories: Dictionary = {
@@ -36,7 +35,7 @@ var progression_arr: Array = [
 	func(): get_tree().change_scene_to_packed(scenes.intro1),
 	func(): story_text = stories.level2; return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
-	func(): get_tree().change_scene_to_packed(scenes.caves1_zoomed),
+	func(): get_tree().change_scene_to_packed(scenes.caves1),
 	func(): story_text = stories.level3; return true,
 	func(): get_tree().change_scene_to_packed(scenes.story),
 	func(): get_tree().change_scene_to_packed(scenes.building),

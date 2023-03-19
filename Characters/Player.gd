@@ -18,6 +18,9 @@ var grounded: bool = false
 @onready var body_sprite: AnimatedSprite2D = $Body/AnimatedSprite2D
 @onready var legs_sprite: AnimatedSprite2D = $Legs/AnimatedSprite2D
 
+@onready var sand_pour_top_right: GPUParticles2D = $Body/SandPourTopRight
+@onready var sand_pour_bot_left: GPUParticles2D = $Body/SandPourBotLeft
+
 @onready var speed_streaks: AnimatedSprite2D = $SpeedStreaks
 const speed_streaks_base_dist: float = 30.0
 
@@ -212,6 +215,9 @@ func apply_damage(damage: int = 1):
 		collision_mask = 0
 		dead_player.play()
 	else:
+		body_sprite.set_frame_and_progress(mini(2, 3 - hp), 0.0)
+		sand_pour_bot_left.emitting = hp < 3
+		sand_pour_top_right.emitting = hp < 2
 		invuln = true
 		modulate.a = 0.7
 		hurt_player.play()

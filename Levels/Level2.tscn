@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bg736en0h5g6j"]
+[gd_scene load_steps=29 format=3 uid="uid://d0aj1nxhordxp"]
 
 [ext_resource type="PackedScene" uid="uid://qc0kim7mlt5b" path="res://Construction/DirtGround.tscn" id="1_8fevv"]
 [ext_resource type="Script" path="res://Levels/Level2.gd" id="1_f7c8k"]
@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://th3peq7b48sv" path="res://Construction/Door.tscn" id="4_suh1t"]
 [ext_resource type="PackedScene" uid="uid://b5pkhpmd5gb5p" path="res://Construction/Fire.tscn" id="5_ax86v"]
 [ext_resource type="Script" path="res://Levels/Ceiling.gd" id="5_v62br"]
-[ext_resource type="PackedScene" uid="uid://ky2704eu3e34" path="res://Construction/GrabbableWall.tscn" id="6_2haeq"]
+[ext_resource type="PackedScene" uid="uid://b456we2kkyqch" path="res://Construction/GrabbableWall.tscn" id="6_2haeq"]
 [ext_resource type="Script" path="res://Levels/FlyingEnemyPlatform.gd" id="9_cx20n"]
-[ext_resource type="Texture2D" uid="uid://06a2ssilkjty" path="res://icon.svg" id="10_aq7yq"]
-[ext_resource type="Script" path="res://Levels/fillpolygon.gd" id="10_e7rj8"]
 [ext_resource type="Script" path="res://Levels/Door.gd" id="11_4ebmk"]
+[ext_resource type="Script" path="res://Levels/RockPoly.gd" id="11_7jk63"]
+[ext_resource type="Texture2D" uid="uid://dr3jx7u2sk3a3" path="res://Assets/Sprites/EnemyFloater.png" id="13_8kc6y"]
 [ext_resource type="Script" path="res://Levels/Key.gd" id="14_8txkb"]
 [ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="16_wd4pb"]
 
@@ -35,7 +35,7 @@ rough = true
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_utu8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqejm"]
-size = Vector2(74, 70)
+size = Vector2(68, 93)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dar61"]
 radius = 36.1248
@@ -151,7 +151,7 @@ script = ExtResource("5_v62br")
 material = SubResource("CanvasItemMaterial_utu8q")
 build_mode = 1
 polygon = PackedVector2Array(158, -96, 0, 18, -1, -244, 833, -243, 1318, -244, 833, -241, 701, -90, 573, -187, 400, -11)
-script = ExtResource("10_e7rj8")
+script = ExtResource("11_7jk63")
 
 [node name="FlyingEnemyPlatform" type="StaticBody2D" parent="."]
 position = Vector2(1605, 625)
@@ -159,11 +159,13 @@ collision_layer = 3
 script = ExtResource("9_cx20n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyingEnemyPlatform"]
+position = Vector2(2, -12.5)
 shape = SubResource("RectangleShape2D_sqejm")
 
 [node name="Sprite2D" type="Sprite2D" parent="FlyingEnemyPlatform"]
-scale = Vector2(0.585938, 0.554688)
-texture = ExtResource("10_aq7yq")
+scale = Vector2(4.5, 4.26)
+texture = ExtResource("13_8kc6y")
+flip_h = true
 
 [node name="LeftBound" type="Node2D" parent="FlyingEnemyPlatform"]
 position = Vector2(-16, -1)

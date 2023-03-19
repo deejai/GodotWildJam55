@@ -4,6 +4,7 @@ var texture_poly: Polygon2D = Polygon2D.new()
 @export var cavetile: Texture2D = Shared.cavetile1
 
 func _ready():
+	get_parent().collision_layer |= 0b10
 	texture_poly.polygon = polygon
 	texture_poly.texture = cavetile
 	texture_poly.texture_scale = Vector2.ONE * 10.0

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="2_w0tfr"]
 [ext_resource type="PackedScene" uid="uid://b3osqgv5ac57q" path="res://Construction/BreakableWall.tscn" id="3_vqamp"]
 [ext_resource type="PackedScene" uid="uid://th3peq7b48sv" path="res://Construction/Door.tscn" id="4_f5vg5"]
-[ext_resource type="PackedScene" uid="uid://ky2704eu3e34" path="res://Construction/GrabbableWall.tscn" id="5_r8qwe"]
+[ext_resource type="PackedScene" uid="uid://b456we2kkyqch" path="res://Construction/GrabbableWall.tscn" id="5_r8qwe"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jqnu8"]
 scenes/1/scene = ExtResource("1_otnnw")

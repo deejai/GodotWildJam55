@@ -39,3 +39,8 @@ func _draw():
 			texture_poly.texture_scale = Vector2.ONE * 10.0
 			texture_poly.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 			add_child(texture_poly)
+
+func _on_finish_line_body_entered(body):
+	var transition = preload("res://Menus/Transition.tscn")
+	var instance = transition.instantiate()
+	add_child(instance)
