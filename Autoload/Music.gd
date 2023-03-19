@@ -12,22 +12,27 @@ var track_dict: Dictionary = {
 
 var current_track: String = ""
 
+var initialized: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func set_track(name: String):
+	if not initialized:
+		add_child(player)
+		initialized = true
+
 	if not track_dict.has(name):
 		printerr(str("Could not find track: ", name))
 	
 	if name == current_track:
 		return
-	
+
 	player.stream = track_dict[name]
 	player.play()
 
