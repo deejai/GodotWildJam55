@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://drupq1nqug85t"]
+[gd_scene load_steps=11 format=3 uid="uid://drupq1nqug85t"]
 
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="1_83o3o"]
 [ext_resource type="Script" path="res://Levels/Level3.gd" id="1_j71qk"]
 [ext_resource type="Script" path="res://Objects/Grabbable.gd" id="3_wpx5i"]
 [ext_resource type="Script" path="res://Levels/RockPoly.gd" id="3_y2k2a"]
+[ext_resource type="Texture2D" uid="uid://c2jru6yo7k1ux" path="res://Assets/Sprites/dreamcatcher.png" id="6_e1iqe"]
 [ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="6_w5be3"]
 [ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="7_emchn"]
 [ext_resource type="PackedScene" uid="uid://cmcltfkgu2jql" path="res://Levels/FlyingMonster.tscn" id="7_srgkc"]
@@ -13,7 +14,7 @@ radius = 39.0
 height = 620.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qsnj"]
-size = Vector2(585, 84.0005)
+size = Vector2(585, 377)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_j71qk")
@@ -677,8 +678,12 @@ position = Vector2(2761, 2732)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish line"]
-position = Vector2(9.50024, 47.0007)
+position = Vector2(9.5, 2.5)
 shape = SubResource("RectangleShape2D_5qsnj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Finish line"]
+rotation = -1.5708
+texture = ExtResource("6_e1iqe")
 
 [node name="Player" parent="." instance=ExtResource("6_w5be3")]
 position = Vector2(4547, 8268)

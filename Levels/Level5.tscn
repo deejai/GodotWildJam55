@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c2oqv7yyets05"]
+[gd_scene load_steps=20 format=3 uid="uid://c2oqv7yyets05"]
 
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="1_c73su"]
 [ext_resource type="Script" path="res://Levels/Level5.gd" id="1_tv3wa"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="7_jy5b2"]
 [ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="8_fn2hv"]
 [ext_resource type="Texture2D" uid="uid://dski38c1afeku" path="res://Assets/Sprites/stonetiles2.png" id="9_vul3a"]
+[ext_resource type="PackedScene" uid="uid://cmcltfkgu2jql" path="res://Levels/FlyingMonster.tscn" id="11_41mfy"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_w66b7"]
 scenes/1/scene = ExtResource("2_ndy45")
@@ -184,6 +185,17 @@ texture_repeat = 2
 texture = ExtResource("9_vul3a")
 texture_scale = Vector2(7, 7)
 polygon = PackedVector2Array(1171, 1232, 1171, 2869, 3000, 2872, 3000, 1230)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="FlyingEnemyPlatform" parent="Enemies" instance=ExtResource("11_41mfy")]
+position = Vector2(1227, 2758)
+
+[node name="FlyingEnemyPlatform2" parent="Enemies" instance=ExtResource("11_41mfy")]
+position = Vector2(2010, 2718)
+
+[node name="FlyingEnemyPlatform3" parent="Enemies" instance=ExtResource("11_41mfy")]
+position = Vector2(1629, 1086)
 
 [connection signal="body_entered" from="MazeZone" to="." method="_on_maze_zone_body_entered"]
 [connection signal="body_exited" from="MazeZone" to="." method="_on_maze_zone_body_exited"]
