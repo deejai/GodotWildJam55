@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Levels/fillpolygon.gd" id="10_e7rj8"]
 [ext_resource type="Script" path="res://Levels/Door.gd" id="11_4ebmk"]
 [ext_resource type="Script" path="res://Levels/Key.gd" id="14_8txkb"]
+[ext_resource type="Texture2D" uid="uid://55tx14k6qu1c" path="res://Assets/Sprites/Key2.png" id="15_30ke2"]
 [ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="16_wd4pb"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jl1v4"]
@@ -38,10 +39,7 @@ rough = true
 size = Vector2(74, 70)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dar61"]
-radius = 36.1248
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jn05r"]
-size = Vector2(32, 32)
+radius = 28.0713
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8pdm"]
 size = Vector2(32, 320)
@@ -179,8 +177,8 @@ script = ExtResource("14_8txkb")
 shape = SubResource("CircleShape2D_dar61")
 
 [node name="Sprite2D" type="Sprite2D" parent="Key"]
-modulate = Color(0.054902, 1, 0, 1)
-texture = SubResource("PlaceholderTexture2D_jn05r")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("15_30ke2")
 
 [node name="Door" type="StaticBody2D" parent="."]
 position = Vector2(1532, 560)
