@@ -1,19 +1,96 @@
-[gd_scene load_steps=10 format=3 uid="uid://btguy24i1ecsr"]
+[gd_scene load_steps=15 format=3 uid="uid://btguy24i1ecsr"]
 
 [ext_resource type="PackedScene" uid="uid://cnqoks4ixwme" path="res://Construction/LevelBoundryLower.tscn" id="1_83o3o"]
 [ext_resource type="Script" path="res://Levels/Level3.gd" id="1_j71qk"]
 [ext_resource type="Script" path="res://Levels/fillpolygon.gd" id="2_xmpea"]
 [ext_resource type="Script" path="res://Levels/CavePlatform.gd" id="3_tt37j"]
 [ext_resource type="Script" path="res://Objects/Grabbable.gd" id="3_wpx5i"]
-[ext_resource type="PackedScene" uid="uid://becahrjgy1o5x" path="res://Characters/Player.tscn" id="5_svltg"]
 [ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="7_emchn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqgqc"]
-size = Vector2(2590, 20)
+[ext_resource type="PackedScene" uid="uid://57dr0t5pgq7m" path="res://Construction/BuildingWall.tscn" id="8_mu1v2"]
+[ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="9_68uyo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tf68s"]
 radius = 39.0
 height = 620.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mc6g"]
+size = Vector2(32, 600)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_eschl"]
+scenes/2/scene = ExtResource("8_mu1v2")
+
+[sub_resource type="TileSet" id="TileSet_s88co"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_eschl")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_07ldn"]
+texture = ExtResource("9_68uyo")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+6:6/0 = 0
+5:6/0 = 0
+4:6/0 = 0
+3:6/0 = 0
+2:6/0 = 0
+1:6/0 = 0
+0:6/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+7:5/0 = 0
+6:5/0 = 0
+5:5/0 = 0
+4:5/0 = 0
+3:5/0 = 0
+2:5/0 = 0
+1:5/0 = 0
+4:2/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+6:0/0 = 0
+7:1/0 = 0
+7:0/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+6:3/0 = 0
+6:2/0 = 0
+5:0/0 = 0
+7:6/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ro7ha"]
+sources/0 = SubResource("TileSetAtlasSource_07ldn")
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_j71qk")
@@ -87,6 +164,7 @@ rotation = 4.66701
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall5"]
 polygon = PackedVector2Array(-1371.09, -95.2949, -1073.66, 188.489, -1026.29, 423.881, -811.992, 752.941, -476.736, 997.4, -471.592, 1280.93, -688.028, 1792.63, -510.782, 2232.13, -229.417, 2671.34, -306.179, 3171.38, -557.665, 3771.58, -277.194, 4517.08, 38.9954, 4872.79, -263.106, 5794.03, -55.1812, 5866.54, 637.754, 5156.24, 561.438, 4456.06, 777.604, 4038.43, 548.906, 3453.46, 574.014, 2393.5, 965.451, 1885.74, 1353.58, 1561.01, 1460.03, 892.15, 1213.9, 382.46, 638.935, 82.0684, -8.71875, -6.40186)
+script = ExtResource("2_xmpea")
 
 [node name="DeathWall6" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(8514, -531)
@@ -95,6 +173,7 @@ rotation = 4.62815
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall6"]
 rotation = 3.11192
 polygon = PackedVector2Array(-1371.09, -95.2949, -1073.66, 188.489, -1026.29, 423.881, -811.992, 752.941, -476.736, 997.4, -471.592, 1280.93, -688.028, 1792.63, -510.782, 2232.13, -229.417, 2671.34, -306.179, 3171.38, -557.665, 3771.58, -277.194, 4517.08, 38.9954, 4872.79, -263.106, 5794.03, -55.1812, 5866.54, 637.754, 5156.24, 561.438, 4456.06, 777.604, 4038.43, 548.906, 3453.46, 574.014, 2393.5, 965.451, 1885.74, 1353.58, 1561.01, 1460.03, 892.15, 1213.9, 382.46, 638.935, 82.0684, -8.71875, -6.40186)
+script = ExtResource("2_xmpea")
 
 [node name="DeathWall8" type="StaticBody2D" parent="DeathWalls"]
 position = Vector2(2264, -6054)
@@ -103,21 +182,13 @@ rotation = 1.77691
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathWalls/DeathWall8"]
 rotation = 3.11192
 polygon = PackedVector2Array(-1371.09, -95.2949, -1073.66, 188.489, -1026.29, 423.881, -811.992, 752.941, -476.736, 997.4, -471.592, 1280.93, -688.028, 1792.63, -510.782, 2232.13, -229.417, 2671.34, -306.179, 3171.38, -557.665, 3771.58, -277.194, 4517.08, 38.9954, 4872.79, -263.106, 5794.03, -55.1812, 5866.54, 637.754, 5156.24, 561.438, 4456.06, 777.604, 4038.43, 548.906, 3453.46, 574.014, 2393.5, 965.451, 1885.74, 1353.58, 1561.01, 1460.03, 892.15, 1213.9, 382.46, 638.935, 82.0684, -8.71875, -6.40186)
+script = ExtResource("2_xmpea")
 
 [node name="Platforms" type="Node2D" parent="."]
 z_index = -2
 z_as_relative = false
 position = Vector2(3783, 8080)
 script = ExtResource("3_tt37j")
-
-[node name="Floor1" type="StaticBody2D" parent="Platforms"]
-position = Vector2(644, 338)
-collision_layer = 3
-script = ExtResource("3_wpx5i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Floor1"]
-position = Vector2(545, 0)
-shape = SubResource("RectangleShape2D_eqgqc")
 
 [node name="Platform1" type="StaticBody2D" parent="Platforms"]
 position = Vector2(542, -240)
@@ -566,12 +637,22 @@ rotation = -2.34398
 shape = SubResource("CapsuleShape2D_tf68s")
 
 [node name="Platform10" type="StaticBody2D" parent="Platforms"]
-position = Vector2(58, -2049)
-rotation = 0.958186
+position = Vector2(7179, -4276)
+rotation = 0.78053
 collision_layer = 0
 script = ExtResource("3_wpx5i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform10"]
+rotation = -2.34398
+shape = SubResource("CapsuleShape2D_tf68s")
+
+[node name="Platform53" type="StaticBody2D" parent="Platforms"]
+position = Vector2(6416, -4078)
+rotation = 1.19613
+collision_layer = 0
+script = ExtResource("3_wpx5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform53"]
 rotation = -2.34398
 shape = SubResource("CapsuleShape2D_tf68s")
 
@@ -623,9 +704,6 @@ script = ExtResource("3_wpx5i")
 rotation = -2.34398
 shape = SubResource("CapsuleShape2D_tf68s")
 
-[node name="Player" parent="." instance=ExtResource("5_svltg")]
-position = Vector2(4604, 8331)
-
 [node name="Polygon2D" type="Polygon2D" parent="."]
 modulate = Color(1, 1, 1, 0.266667)
 z_index = -10
@@ -633,3 +711,23 @@ texture_repeat = 2
 texture = ExtResource("7_emchn")
 texture_scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(-528, -3418, -3115, 1510, -851, 10967, 18690, 11557, 21734, -2200, 6189, -6119)
+
+[node name="FinishLine" type="Area2D" parent="."]
+position = Vector2(2728, 2741)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
+shape = SubResource("RectangleShape2D_3mc6g")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_s88co")
+cell_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(17170547, 0, 131072, 17170548, 0, 131072, 17170549, 0, 131072, 17170550, 0, 131072, 17170551, 0, 131072, 17170552, 0, 131072, 17170553, 0, 131072, 17170554, 0, 131072, 17170555, 0, 131072, 17170556, 0, 131072, 17170557, 0, 131072, 17170558, 0, 131072, 17170559, 0, 131072, 17170560, 0, 131072, 17170561, 0, 131072, 17170562, 0, 131072, 17170563, 0, 131072, 17170564, 0, 131072, 17170565, 0, 131072, 17170566, 0, 131072, 17170567, 0, 131072, 17170568, 0, 131072, 17170569, 0, 131072, 17170570, 0, 131072, 17170571, 0, 131072, 17170572, 0, 131072, 17170573, 0, 131072, 17170574, 0, 131072, 17170575, 0, 131072, 17170576, 0, 131072, 17170577, 0, 131072, 17170578, 0, 131072, 17170579, 0, 131072, 17170580, 0, 131072, 17170581, 0, 131072, 17170582, 0, 131072, 17170583, 0, 131072, 17170584, 0, 131072, 17170585, 0, 131072, 17170586, 0, 131072, 17170587, 0, 131072, 17170588, 0, 131072, 17170589, 0, 131072, 17170590, 0, 131072, 17170591, 0, 131072, 17170592, 0, 131072, 17170593, 0, 131072, 17170594, 0, 131072, 17170595, 0, 131072, 17170596, 0, 131072, 17170597, 0, 131072, 17170598, 0, 131072, 17170599, 0, 131072, 17170600, 0, 131072, 17170601, 0, 131072, 17170602, 0, 131072, 17170603, 0, 131072, 17170604, 0, 131072, 17170605, 0, 131072, 17170606, 0, 131072, 17170607, 0, 131072, 17170608, 0, 131072, 17170609, 0, 131072, 17170610, 0, 131072, 17170611, 0, 131072, 17170612, 0, 131072, 17170613, 0, 131072, 17170614, 0, 131072, 17170615, 0, 131072, 17170616, 0, 131072, 17170617, 0, 131072, 17170618, 0, 131072, 17170619, 0, 131072, 17170620, 0, 131072, 17170621, 0, 131072, 17170622, 0, 131072, 17170623, 0, 131072, 17170624, 0, 131072, 17170625, 0, 131072, 17170626, 0, 131072, 17170627, 0, 131072, 17170546, 0, 131072, 17170545, 0, 131072, 17170544, 0, 131072, 17170543, 0, 131072, 17170542, 0, 131072, 17170541, 0, 131072, 16187501, 0, 131072, 16121965, 0, 131072, 16056429, 0, 131072, 15990893, 0, 131072, 15925357, 0, 131072, 15859821, 0, 131072, 15794285, 0, 131072, 15728749, 0, 131072, 15663213, 0, 131072, 15597677, 0, 131072, 16253037, 0, 131072, 16318573, 0, 131072, 16384109, 0, 131072, 16449645, 0, 131072, 16515181, 0, 131072, 16580717, 0, 131072, 16646253, 0, 131072, 16711789, 0, 131072, 16777325, 0, 131072, 16842861, 0, 131072, 16908397, 0, 131072, 16973933, 0, 131072, 17039469, 0, 131072, 17105005, 0, 131072)
+
+[node name="TileMapTextures" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_ro7ha")
+format = 2
+layer_0/tile_data = PackedInt32Array(17170547, 65536, 0, 17170548, 65536, 0, 17170549, 65536, 0, 17170550, 65536, 0, 17170551, 65536, 0, 17170552, 65536, 0, 17170553, 65536, 0, 17170554, 65536, 0, 17170555, 65536, 0, 17170556, 65536, 0, 17170557, 65536, 0, 17170558, 65536, 0, 17170559, 65536, 0, 17170560, 65536, 0, 17170561, 65536, 0, 17170562, 65536, 0, 17170563, 65536, 0, 17170564, 65536, 0, 17170565, 65536, 0, 17170566, 65536, 0, 17170567, 65536, 0, 17170568, 65536, 0, 17170569, 65536, 0, 17170570, 65536, 0, 17170571, 65536, 0, 17170572, 65536, 0, 17170573, 65536, 0, 17170574, 65536, 0, 17170575, 65536, 0, 17170576, 65536, 0, 17170577, 65536, 0, 17170578, 65536, 0, 17170579, 65536, 0, 17170580, 65536, 0, 17170581, 65536, 0, 17170582, 65536, 0, 17170583, 65536, 0, 17170584, 65536, 0, 17170585, 65536, 0, 17170586, 65536, 0, 17170587, 65536, 0, 17170588, 65536, 0, 17170589, 65536, 0, 17170590, 65536, 0, 17170591, 65536, 0, 17170592, 65536, 0, 17170593, 65536, 0, 17170594, 65536, 0, 17170595, 65536, 0, 17170596, 65536, 0, 17170597, 65536, 0, 17170598, 65536, 0, 17170599, 65536, 0, 17170600, 65536, 0, 17170601, 65536, 0, 17170602, 65536, 0, 17170603, 65536, 0, 17170604, 65536, 0, 17170605, 65536, 0, 17170606, 65536, 0, 17170607, 65536, 0, 17170608, 65536, 0, 17170609, 65536, 0, 17170610, 65536, 0, 17170611, 65536, 0, 17170612, 65536, 0, 17170613, 65536, 0, 17170614, 65536, 0, 17170615, 65536, 0, 17170616, 65536, 0, 17170617, 65536, 0, 17170618, 65536, 0, 17170619, 65536, 0, 17170620, 65536, 0, 17170621, 65536, 0, 17170622, 65536, 0, 17170623, 65536, 0, 17170624, 65536, 0, 17170625, 65536, 0, 17170626, 65536, 0, 17170627, 65536, 0, 17170546, 65536, 0, 17170545, 65536, 0, 17170544, 65536, 0, 17170543, 65536, 0, 17170542, 65536, 0, 17105005, 131072, 4, 17039469, 131072, 4, 16973933, 131072, 4, 16908397, 131072, 4, 16842861, 131072, 4, 16777325, 131072, 4, 16711789, 131072, 4, 16646253, 131072, 4, 16580717, 131072, 4, 16515181, 131072, 4, 16449645, 131072, 4, 16384109, 131072, 4, 16318573, 131072, 4, 16253037, 131072, 4, 16187501, 131072, 4, 16121965, 131072, 4, 16056429, 131072, 4, 15990893, 131072, 4, 15925357, 131072, 4, 15859821, 131072, 4, 15794285, 131072, 4, 15728749, 131072, 4, 15663213, 131072, 4, 15597677, 131072, 4, 17170541, 65536, 6)
+
+[connection signal="body_entered" from="FinishLine" to="." method="_on_area_2d_body_entered"]
