@@ -1,10 +1,105 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmcltfkgu2jql"]
+[gd_scene load_steps=15 format=3 uid="uid://cmcltfkgu2jql"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dm22h"]
+[ext_resource type="Script" path="res://Levels/FlyingEnemyPlatform.gd" id="1_xtryu"]
+[ext_resource type="Texture2D" uid="uid://vq7pomkaywdj" path="res://Assets/Sprites/EnemyFloaterAnim.png" id="2_2xm6w"]
+[ext_resource type="Script" path="res://Construction/SimpleHazardArea.gd" id="3_tvblr"]
+[ext_resource type="PackedScene" uid="uid://m4hlkw1026la" path="res://Particles/ZParticles.tscn" id="4_culm7"]
 
-[node name="FlyingMonster" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvysa"]
+size = Vector2(68, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv33u"]
+atlas = ExtResource("2_2xm6w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpee8"]
+atlas = ExtResource("2_2xm6w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eu6n"]
+atlas = ExtResource("2_2xm6w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbw0p"]
+atlas = ExtResource("2_2xm6w")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kncrh"]
+atlas = ExtResource("2_2xm6w")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heujb"]
+atlas = ExtResource("2_2xm6w")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su1t8"]
+atlas = ExtResource("2_2xm6w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md0kh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv33u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpee8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eu6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbw0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kncrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heujb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su1t8")
+}],
+"loop": true,
+"name": &"sleeping",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kivjr"]
+size = Vector2(87, 147)
+
+[node name="FlyingEnemyPlatform" type="StaticBody2D"]
+collision_layer = 3
+script = ExtResource("1_xtryu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_dm22h")
+position = Vector2(2, -12.5)
+shape = SubResource("RectangleShape2D_mvysa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4.5, 4.26)
+sprite_frames = SubResource("SpriteFrames_md0kh")
+frame_progress = 0.221889
+flip_h = true
+
+[node name="LeftBound" type="Node2D" parent="."]
+position = Vector2(-16, -1)
+
+[node name="RightBound" type="Node2D" parent="."]
+position = Vector2(836, 2)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_tvblr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_kivjr")
+
+[node name="ZParticles" parent="." instance=ExtResource("4_culm7")]
+visible = false
+position = Vector2(0, -58)

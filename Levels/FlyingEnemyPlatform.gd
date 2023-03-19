@@ -1,19 +1,30 @@
 extends Enemy
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var leftbound: Vector2 = $LeftBound.global_position
 @onready var rightbound: Vector2 = $RightBound.global_position
 
 var speed: float = 100.0
 var direction: Vector2 = Vector2.RIGHT
 
+var nullified: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	sprite.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	enemy_process()
+	
+	if nullified:
+		return
+	elif sleeping:
+		remove_child($Area2D)
+		nullified = true
+		sprite.animation = "sleeping"
+		$ZParticles.visible = true
+		return
 
 	position += direction * speed * delta
 
