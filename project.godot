@@ -66,5 +66,5 @@ cancel_or_pause={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.4, 0.305882, 0.14902, 1)
+environment/defaults/default_clear_color=Color(0.0509804, 0.0823529, 0.101961, 1)
 textures/canvas_textures/default_texture_filter=0

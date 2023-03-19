@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0aj1nxhordxp"]
+[gd_scene load_steps=28 format=3 uid="uid://d0aj1nxhordxp"]
 
 [ext_resource type="PackedScene" uid="uid://qc0kim7mlt5b" path="res://Construction/DirtGround.tscn" id="1_8fevv"]
 [ext_resource type="Script" path="res://Levels/Level2.gd" id="1_f7c8k"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://55tx14k6qu1c" path="res://Assets/Sprites/Key2.png" id="15_30ke2"]
 [ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="16_wd4pb"]
 [ext_resource type="PackedScene" uid="uid://cmcltfkgu2jql" path="res://Levels/FlyingMonster.tscn" id="16_wprax"]
+[ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="18_hd82f"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jl1v4"]
 scenes/1/scene = ExtResource("1_8fevv")
@@ -44,6 +45,7 @@ size = Vector2(32, 320)
 size = Vector2(32, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mlx2"]
+size = Vector2(45.3742, 51.5068)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8h1qm"]
 texture = ExtResource("16_wd4pb")
@@ -174,6 +176,7 @@ texture = SubResource("PlaceholderTexture2D_ox8jd")
 position = Vector2(2688, 562)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish Line"]
+position = Vector2(18.5, 3)
 scale = Vector2(5.84033, 5.94096)
 shape = SubResource("RectangleShape2D_5mlx2")
 
@@ -187,6 +190,14 @@ layer_0/tile_data = PackedInt32Array(1441792, 65537, 4, 1441793, 65537, 4, 14417
 
 [node name="FlyingEnemyPlatform" parent="." instance=ExtResource("16_wprax")]
 position = Vector2(1607, 612)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -2
+texture_repeat = 2
+color = Color(1, 1, 1, 0.592157)
+texture = ExtResource("18_hd82f")
+texture_scale = Vector2(9, 9)
+polygon = PackedVector2Array(280, 62, 2882, 60, 2883, 745, 284, 743)
 
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
 [connection signal="body_entered" from="Key" to="Door" method="_on_key_body_entered"]

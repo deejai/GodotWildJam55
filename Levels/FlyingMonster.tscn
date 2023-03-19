@@ -84,7 +84,7 @@ shape = SubResource("RectangleShape2D_mvysa")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.26)
 sprite_frames = SubResource("SpriteFrames_md0kh")
-frame_progress = 0.221889
+frame_progress = 0.499951
 flip_h = true
 
 [node name="LeftBound" type="Node2D" parent="."]
