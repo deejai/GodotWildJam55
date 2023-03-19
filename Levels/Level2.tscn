@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Levels/RockPoly.gd" id="11_7jk63"]
 [ext_resource type="Script" path="res://Levels/Key.gd" id="14_8txkb"]
 [ext_resource type="Texture2D" uid="uid://55tx14k6qu1c" path="res://Assets/Sprites/Key2.png" id="15_30ke2"]
+[ext_resource type="Texture2D" uid="uid://dski38c1afeku" path="res://Assets/Sprites/stonetiles2.png" id="15_l3h14"]
 [ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="16_wd4pb"]
 [ext_resource type="PackedScene" uid="uid://cmcltfkgu2jql" path="res://Levels/FlyingMonster.tscn" id="16_wprax"]
 [ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="18_hd82f"]
@@ -42,11 +43,8 @@ radius = 28.0713
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8pdm"]
 size = Vector2(32, 320)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ox8jd"]
-size = Vector2(32, 320)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mlx2"]
-size = Vector2(45.3742, 51.5068)
+size = Vector2(18.4921, 16.8323)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8h1qm"]
 texture = ExtResource("16_wd4pb")
@@ -171,18 +169,20 @@ shape = SubResource("RectangleShape2D_p8pdm")
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
 modulate = Color(0.721569, 0.407843, 0.0431373, 1)
 self_modulate = Color(0.768627, 0.462745, 0.0392157, 1)
-texture = SubResource("PlaceholderTexture2D_ox8jd")
+position = Vector2(3.8147e-05, 2.55108e-05)
+scale = Vector2(0.032, 0.32)
+texture = ExtResource("15_l3h14")
 
 [node name="Finish Line" type="Area2D" parent="."]
 position = Vector2(2688, 562)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish Line"]
-position = Vector2(18.5, 3)
+position = Vector2(1, 1)
 scale = Vector2(5.84033, 5.94096)
 shape = SubResource("RectangleShape2D_5mlx2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Finish Line"]
-scale = Vector2(0.016, 0.016)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("18_rqrga")
 
 [node name="TileMapTextures" type="TileMap" parent="."]
