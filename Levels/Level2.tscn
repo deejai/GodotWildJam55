@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0aj1nxhordxp"]
+[gd_scene load_steps=33 format=3 uid="uid://d0aj1nxhordxp"]
 
 [ext_resource type="PackedScene" uid="uid://qc0kim7mlt5b" path="res://Construction/DirtGround.tscn" id="1_8fevv"]
 [ext_resource type="Script" path="res://Levels/Level2.gd" id="1_f7c8k"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://55tx14k6qu1c" path="res://Assets/Sprites/Key2.png" id="15_30ke2"]
 [ext_resource type="Texture2D" uid="uid://dtrxgp03th6m8" path="res://Assets/Sprites/TilesfinalScaled.png" id="16_wd4pb"]
 [ext_resource type="Texture2D" uid="uid://c6pyjseprjavv" path="res://Assets/Sprites/stonetiles7.png" id="18_hd82f"]
+[ext_resource type="Texture2D" uid="uid://c2jru6yo7k1ux" path="res://Assets/Sprites/dreamcatcher.png" id="18_rqrga"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jl1v4"]
 scenes/1/scene = ExtResource("1_8fevv")
@@ -212,6 +213,10 @@ position = Vector2(2688, 562)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish Line"]
 scale = Vector2(5.84033, 5.94096)
 shape = SubResource("RectangleShape2D_5mlx2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Finish Line"]
+scale = Vector2(0.016, 0.016)
+texture = ExtResource("18_rqrga")
 
 [node name="TileMapTextures" type="TileMap" parent="."]
 z_index = 1
